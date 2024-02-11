@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\LangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,16 +18,22 @@ use Illuminate\Support\Facades\Route;
 
 
 /** in RouteServiceProvider */
-// ->prefix('admin')
-// ->as('admin.')
-
+// prefix => admin
+// name => admin.
+// namespace => App\Http\Controllers\Admin
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
-Route::get('/', [HomeController::class, 'root'])->name('index');
-Route::get('{any}', [HomeController::class, 'notFound'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::get('lang/{locale}', [LangController::class, 'index'])->name('lang');
+
+
+
+
+Route::get('{any}', [HomeController::class, 'notFound'])->name('notFound');
 
 

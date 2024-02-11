@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
     <meta charset="utf-8" />
@@ -11,7 +12,7 @@
     <link rel="shortcut icon" href="{{ URL::asset('build/images/favicon.ico') }}">
 
     <!-- include head css -->
-    @include('admin.layouts.head-css')
+    @include('admin.layouts.css')
 </head>
 
 @yield('body')
@@ -39,7 +40,7 @@
         <!-- End Page-content -->
 
         <!-- footer -->
-        @include('admin.layouts.footer')
+        {{-- @include('admin.layouts.footer') --}}
 
     </div>
     <!-- end main content-->
@@ -50,7 +51,7 @@
 @include('admin.layouts.right-sidebar')
 
 <!-- vendor-scripts -->
-@include('admin.layouts.vendor-scripts')
+@include('admin.layouts.scripts')
 
 </body>
 

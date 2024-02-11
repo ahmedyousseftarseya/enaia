@@ -3,7 +3,7 @@
 
     <!-- LOGO -->
     <div class="navbar-brand-box">
-        <a href="/dashboard" class="logo logo-dark">
+        <a href="{{ route('admin.index') }}" class="logo logo-dark">
             <span class="logo-sm">
                 <img src="{{ URL::asset('build/images/logo-dark-sm.png') }}" alt="" height="26">
             </span>
@@ -35,20 +35,28 @@
                 <li class="menu-title" data-key="t-menu">Dashboard</li>
 
                 <li>
-                    <a href="javascript: void(0);">
+                    <a href="{{ route('admin.index') }}">
                         <i class="bx bx-home-alt icon nav-icon"></i>
-                        <span class="menu-item" data-key="t-dashboard">Dashboard</span>
+                        <span class="menu-item" data-key="t-dashboard">{{ __('lang.dashboard') }}</span>
                         <span class="badge rounded-pill bg-primary">2</span>
                     </a>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-home-alt icon nav-icon"></i>
+                        <span class="menu-item" data-key="t-dashboard">{{ __('lang.doctors') }}</span>
+                        {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                    </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index" data-key="t-ecommerce">Ecommerce</a></li>
-                        <li><a href="dashboard-sales" data-key="t-sales">Sales</a></li>
+                        <li><a href="index">{{ __('lang.doctors') }}</a></li>
+                        <li><a href="dashboard-sales">{{ __('lang.add_doctor') }}</a></li>
                     </ul>
                 </li>
 
                 
                 {{-- <li class="menu-title" data-key="t-applications">Applications</li> --}}
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fa fa-user-md icon nav-icon"></i>
                         <span class="menu-item" data-key="t-email">Doctors</span>
@@ -57,7 +65,7 @@
                         <li><a href="email-inbox" data-key="t-inbox">Doctors List</a></li>
                         <li><a href="email-read" data-key="t-read-email">Add Doctor</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
                 {{-- <li>
                     <a href="apps-calendar">
