@@ -38,7 +38,6 @@
                     <a href="{{ route('admin.index') }}">
                         <i class="bx bx-home-alt icon nav-icon"></i>
                         <span class="menu-item" data-key="t-dashboard">{{ __('lang.dashboard') }}</span>
-                        <span class="badge rounded-pill bg-primary">2</span>
                     </a>
                 </li>
 
@@ -49,8 +48,8 @@
                         {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index">{{ __('lang.doctors') }}</a></li>
-                        <li><a href="dashboard-sales">{{ __('lang.add_doctor') }}</a></li>
+                        <li><a href="{{ route('admin.doctors.index') }}">{{ __('lang.doctors_list') }}</a></li>
+                        <li><a href="{{ route('admin.doctors.create') }}">{{ __('lang.add') . ' ' . __('lang.doctor') }}</a></li>
                     </ul>
                 </li>
 

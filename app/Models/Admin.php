@@ -12,4 +12,13 @@ class Admin extends Authenticatable
 
     protected $fillable = ['username', 'email', 'password', 'phone', 'image'];
     protected $hidden = ['password'];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->image)
+            return asset($this->image);
+        return asset('build/images/user.png');
+    }
 }
