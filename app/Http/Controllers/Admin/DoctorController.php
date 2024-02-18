@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreDoctorRequest;
 use App\Models\Doctor;
+use App\Models\Nurse;
 use App\Models\Specialization;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class DoctorController extends Controller
@@ -39,9 +41,11 @@ class DoctorController extends Controller
     public function create()
     {
         $specializations = Specialization::get()->pluck('name', 'id')->toArray();
+        $nurses = Nurse::pluck('name', 'id')->toArray();
         return view('admin.doctors.form', [
             'doctor' => $this->model,
-            'specializations' => $specializations
+            'specializations' => $specializations,
+            'nurses' => $nurses
         ]);
     }
 
@@ -53,7 +57,12 @@ class DoctorController extends Controller
         $data = $request->validated();
         $request->image ? $data['image'] = uploadFile($data['image'], config('upload_pathes.doctors')) : null;
         $data['password'] ? bcrypt($data['password']) : null;
-        $this->model->create($data);
+
+        DB::beginTransaction();
+        $doctor = $this->model->create($data);
+        $doctor->nurses()->sync($request->nurses);
+        DB::commit();
+
         toast(__('lang.created'), 'success');
         return redirect()->route('admin.doctors.index');
     }
@@ -71,9 +80,11 @@ class DoctorController extends Controller
     public function edit(Doctor $doctor)
     {
         $specializations = Specialization::get()->pluck('name', 'id')->toArray();
+        $nurses = Nurse::pluck('name', 'id')->toArray();
         return view('admin.doctors.form', [
             'doctor' => $doctor,
-            'specializations' => $specializations
+            'specializations' => $specializations,
+            'nurses' => $nurses
         ]);
     }
 
@@ -88,7 +99,12 @@ class DoctorController extends Controller
             $data['image'] = uploadFile($data['image'], config('upload_pathes.doctors'));
         }
         $data['password'] ? bcrypt($request->password) : $doctor->password;
+
+        DB::beginTransaction();
         $doctor->update($data);
+        $doctor->nurses()->sync($request->nurses);
+        Db::commit();
+
         toast(__('lang.updated'), 'success');
         return redirect()->route('admin.doctors.index');
     }

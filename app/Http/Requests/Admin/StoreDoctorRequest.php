@@ -26,6 +26,8 @@ class StoreDoctorRequest extends FormRequest
             'phone' => ['required', Rule::unique('doctors', 'phone')->ignore($id)],
             'email' => ['nullable', 'email', Rule::unique('doctors', 'email')->ignore($id)],
             'password' => ['nullable', 'string', 'min:6'],
+            'nurses' => ['nullable', 'array'],
+            'nurses.*' => ['integer', 'exists:nurses,id'],
         ];
     }
     

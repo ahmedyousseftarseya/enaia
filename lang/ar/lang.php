@@ -17,6 +17,7 @@ return [
     'nurse' => 'ممرضة',
     'nurses_list' => 'قائمة الممرضات',
 
+    'you_can_choose_multiple' => 'يمكنك اختيار  مجموعة عناصر', 
     'doctors' => 'الأطباء',
     'doctor' => 'طبيب',
     'doctors_list' => 'قائمة الأطباء',

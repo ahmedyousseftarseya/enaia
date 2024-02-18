@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-
+use Illuminate\Support\Facades\DB;
 
 class Doctor extends Model implements TranslatableContract
 {
@@ -22,10 +22,20 @@ class Doctor extends Model implements TranslatableContract
             return asset($this->image);
         return asset('build/images/user.png');
     }
-
+    
     public function specialization()
     {
         return $this->belongsTo(Specialization::class);
+    }
+
+    public function nurses()
+    {
+        return $this->belongsToMany(Nurse::class, 'doctor_nurses', 'doctor_id', 'nurse_id');
+    }
+
+    public function getNursesIds()
+    {
+        return DB::table('doctor_nurses')->where('doctor_id', $this->id)->pluck('nurse_id')->toArray();
     }
 
     public function scopeFilter($q)

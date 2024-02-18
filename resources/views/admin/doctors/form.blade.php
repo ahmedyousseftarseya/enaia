@@ -58,6 +58,19 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    <div class="col-12 mt-4">
+                        {{ html()->label(__('lang.nurses')) }}
+                        <span class="text-muted">({{ __('lang.you_can_choose_multiple') }})</span>
+                        {{ html()->multiselect('nurses[]', $nurses, old('nurses',  $doctor->getNursesIds()))
+                            ->class('form-control select2')
+                        }}
+
+                        @error('nurses')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     
                     @foreach (config('translatable.locales') as $locale)
                         <div class="col-6 mt-4">
