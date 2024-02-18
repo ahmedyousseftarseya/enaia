@@ -1,7 +1,9 @@
 <?php
 
 return [
-    
+    'login' => 'Login',
+    'username' => 'Username',
+
     'dashboard' => 'Dashboard',
 
     'doctors' => 'Doctors',

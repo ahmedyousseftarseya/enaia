@@ -13,7 +13,7 @@ class StoreDoctorRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->doctor->id;
+        $id = $this->doctor?->id;
         return [
             'specialization_id' => ['required'],
             'image' => ['nullable', 'image' , 'mimes:jpeg,png,jpg'],
@@ -24,7 +24,7 @@ class StoreDoctorRequest extends FormRequest
             'ar.experience' => ['required'],
             'en.experience' => ['required'],
             'phone' => ['required', Rule::unique('doctors', 'phone')->ignore($id)],
-            'email' => ['required', 'email', Rule::unique('doctors', 'email')->ignore($id)],
+            'email' => ['nullable', 'email', Rule::unique('doctors', 'email')->ignore($id)],
             'password' => ['nullable', 'string', 'min:6'],
         ];
     }

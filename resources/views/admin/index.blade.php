@@ -6,18 +6,12 @@
     <!-- jsvectormap css -->
     <link href="{{ URL::asset('build/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
-@section('page-title')
-    Dashboard
-@endsection
-@section('body')
 
-    <body>
-    @endsection
-    @section('content')
+@section('page-title', __('lang.dashboard'))
 
-
-        <h1>{{ __('lang.dashboard') }}</h1>
-        {{-- <div class="row">
+@section('content')
+    {{-- <h1>{{ __('lang.dashboard') }}</h1> --}}
+    {{-- <div class="row">
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body pb-0">
@@ -1049,17 +1043,18 @@
                 </div>
             </div>
         </div> --}}
-        <!-- end row -->
-    @endsection
-    @section('scripts')
-        <!-- apexcharts -->
-        <script src="{{ URL::asset('build/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <!-- end row -->
+@endsection
 
-        <!-- Vector map-->
-        <script src="{{ URL::asset('build/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
-        <script src="{{ URL::asset('build/libs/jsvectormap/maps/world-merc.js') }}"></script>
+@section('scripts')
+    <!-- apexcharts -->
+    <script src="{{ URL::asset('build/libs/apexcharts/apexcharts.min.js') }}"></script>
 
-        <script src="{{ URL::asset('build/js/pages/dashboard.init.js') }}"></script>
-        <!-- App js -->
-        <script src="{{ URL::asset('build/js/app.js') }}"></script>
-    @endsection
+    <!-- Vector map-->
+    <script src="{{ URL::asset('build/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
+    <script src="{{ URL::asset('build/libs/jsvectormap/maps/world-merc.js') }}"></script>
+
+    <script src="{{ URL::asset('build/js/pages/dashboard.init.js') }}"></script>
+    <!-- App js -->
+    <script src="{{ URL::asset('build/js/app.js') }}"></script>
+@endsection

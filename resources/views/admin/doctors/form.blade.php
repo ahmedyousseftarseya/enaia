@@ -12,7 +12,7 @@
 @section('content')
 
     {{-- breadcrumb component --}}
-    @component('admin.components.breadcrumb', [
+    @component('admin.layouts.components.breadcrumb', [
         'title' => $title,
         'pagetitle' => __('lang.doctors'),
         'url' => route('admin.doctors.index'),
@@ -21,7 +21,7 @@
 
 
     {{-- form --}}
-    @component('admin.components.card', ['title' => $title, 'class' => 'p-2'])
+    @component('admin.layouts.components.card', ['title' => $title, 'class' => 'p-2'])
 
         @slot('content')
 
@@ -66,6 +66,7 @@
                             <span class="text-danger fs-6">*</span>
                             {{ html()->text("$locale" . '[name]', old("$locale" . '[name]', optional($doctor->translate($locale))->name))
                                 ->class('form-control') 
+                                ->attribute('required')
                                 ->placeholder(__('lang.name_' . $locale))
                             }}
 
@@ -82,8 +83,8 @@
                             <span class="text-danger fs-6">*</span>
                             {{ html()->textarea("$locale" . '[about]', old("$locale" . '[about]', optional($doctor->translate($locale))->about))
                                 ->class('form-control') 
-                                ->placeholder(__('lang.about_' . $locale))
                                 ->attributes(['required', 'rows' => 5, 'style' => 'resize: none'])
+                                ->placeholder(__('lang.about_' . $locale))
                             }}
 
                             @error("$locale.about")
@@ -99,8 +100,8 @@
                             <span class="text-danger fs-6">*</span>
                             {{ html()->textarea("$locale" . '[experience]', old("$locale" . '[experience]', optional($doctor->translate($locale))->experience))
                                 ->class('form-control') 
-                                ->placeholder(__('lang.experience_' . $locale))
                                 ->attributes(['required', 'rows' => 5, 'style' => 'resize: none'])
+                                ->placeholder(__('lang.experience_' . $locale))
                             }}
 
                             @error("$locale.experience")
@@ -113,7 +114,8 @@
                         {{ html()->label(__('lang.phone')) }}
                         <span class="text-danger fs-6">*</span>
                         {{ html()->text("phone", old("phone", optional($doctor)->phone))
-                            ->class('form-control') 
+                            ->class('form-control')
+                            ->attribute('required')
                             ->placeholder(__('lang.phone'))
                         }}
 

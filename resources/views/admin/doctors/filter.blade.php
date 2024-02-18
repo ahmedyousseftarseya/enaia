@@ -13,7 +13,10 @@
         <div class="col-4">
             {{ html()->label(__('lang.specialization')) }}
             <span class="text-danger fs-6">*</span>
-            {{ html()->select('specialization_id', $specializations, request('specialization_id'))->class('select2')->placeholder(__('lang.select-item')) }}
+            {{ html()->select('specialization_id', $specializations, request('specialization_id'))
+                ->class('select2')
+                ->placeholder(__('lang.select-item')) 
+            }}
         </div>
 
         <div class="col-4" style="margin-top: 2.2em!important">

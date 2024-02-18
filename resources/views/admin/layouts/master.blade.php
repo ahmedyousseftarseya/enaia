@@ -15,45 +15,44 @@
     @include('admin.layouts.css')
 </head>
 
-@yield('body')
+<body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <!-- topbar -->
+        @include('admin.layouts.topbar')
 
-<!-- Begin page -->
-<div id="layout-wrapper">
-    <!-- topbar -->
-    @include('admin.layouts.topbar')
+        <!-- sidebar components -->
+        @include('admin.layouts.sidebar')
+        @include('admin.layouts.horizontal')
 
-    <!-- sidebar components -->
-    @include('admin.layouts.sidebar')
-    @include('admin.layouts.horizontal')
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
 
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    @yield('content')
 
-        <div class="page-content">
-            <div class="container-fluid">
-                @yield('content')
-
-                @include('sweetalert::alert')
+                    @include('sweetalert::alert')
+                </div>
+                <!-- container-fluid -->
             </div>
-            <!-- container-fluid -->
+            <!-- End Page-content -->
+
+            <!-- footer -->
+            {{-- @include('admin.layouts.footer') --}}
+
         </div>
-        <!-- End Page-content -->
-
-        <!-- footer -->
-        {{-- @include('admin.layouts.footer') --}}
-
+        <!-- end main content-->
     </div>
-    <!-- end main content-->
-</div>
-<!-- END layout-wrapper -->
+    <!-- END layout-wrapper -->
 
-<!-- customizer -->
-@include('admin.layouts.right-sidebar')
+    <!-- customizer -->
+    @include('admin.layouts.right-sidebar')
 
-<!-- vendor-scripts -->
-@include('admin.layouts.scripts')
+    <!-- vendor-scripts -->
+    @include('admin.layouts.scripts')
 
 </body>
 

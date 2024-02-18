@@ -9,7 +9,7 @@
 
 
     {{-- breadcrumb component --}}
-    @component('admin.components.breadcrumb', [
+    @component('admin.layouts.components.breadcrumb', [
         'title' => __('lang.doctors_list'),
         'pagetitle' => __('lang.doctors'),
         'url' => route('admin.doctors.index'),
@@ -17,7 +17,7 @@
     @endcomponent
 
     {{-- filter component --}}
-    @component('admin.components.filter', [
+    @component('admin.layouts.components.filter', [
         'title' => __('lang.filter'),
         'id' => 'filter_body',
     ])
@@ -32,7 +32,7 @@
     @endcomponent
 
 
-    @component('admin.components.card', ['title' => ''])
+    @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
             <a href="{{ route('admin.doctors.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.doctor') }}</a>
@@ -41,7 +41,7 @@
         @slot('content')
 
             {{-- table component --}}
-            @component('admin.components.table')
+            @component('admin.layouts.components.table')
                 @slot('headers')
                     <th>#</th>
                     <th>{{ __('lang.name') }}</th>
