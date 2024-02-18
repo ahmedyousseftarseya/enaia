@@ -37,19 +37,35 @@
                 <li>
                     <a href="{{ route('admin.index') }}">
                         <i class="bx bx-home-alt icon nav-icon"></i>
-                        <span class="menu-item" data-key="t-dashboard">{{ __('lang.dashboard') }}</span>
+                        <span class="menu-item">{{ __('lang.dashboard') }}</span>
                     </a>
                 </li>
+
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-home-alt icon nav-icon"></i>
-                        <span class="menu-item" data-key="t-dashboard">{{ __('lang.doctors') }}</span>
-                        {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                        <span class="menu-item">{{ __('lang.doctors') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('admin.doctors.index') }}">{{ __('lang.doctors_list') }}</a></li>
                         <li><a href="{{ route('admin.doctors.create') }}">{{ __('lang.add') . ' ' . __('lang.doctor') }}</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-user icon nav-icon"></i>
+                        <span class="menu-item">{{ __('lang.nurses') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.nurses.index') }}">{{ __('lang.nurses_list') }}
+                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            </a>
+                        </li>
+                        
+                        <li><a href="{{ route('admin.nurses.create') }}">{{ __('lang.add') . ' ' . __('lang.nurse') }}</a></li>
                     </ul>
                 </li>
 

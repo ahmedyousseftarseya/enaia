@@ -23,7 +23,6 @@
 
         <!-- sidebar components -->
         @include('admin.layouts.sidebar')
-        @include('admin.layouts.horizontal')
 
         <!-- ============================================================== -->
         <!-- Start right Content here -->

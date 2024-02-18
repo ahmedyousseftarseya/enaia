@@ -1,10 +1,9 @@
 <?php
 
 return [
-    'login' => 'Login',
-    'username' => 'Username',
-
-    'dashboard' => 'Dashboard',
+    'nurses' => 'Nurses',
+    'nurse' => 'Nurse',
+    'nurses_list' => 'Nurses list',
 
     'doctors' => 'Doctors',
     'doctor' => 'Doctor',
@@ -21,6 +20,10 @@ return [
     'phone' => 'Phone',
     'email' => 'Email',
     'password' => 'Password',
+
+    'login' => 'Login',
+    'username' => 'Username',
+    'dashboard' => 'Dashboard',
 
     'add' => 'Add',
     'edit' => 'Edit',

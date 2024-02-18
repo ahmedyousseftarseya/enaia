@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\LangController;
+use App\Http\Controllers\Admin\NurseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,13 +29,13 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
-
 Route::get('lang/{locale}', [LangController::class, 'index'])->name('lang');
 
 // Doctors Routes
 Route::middleware('auth:admin')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::resource('doctors', DoctorController::class);
+    Route::resource('nurses', NurseController::class);
 });
 
 

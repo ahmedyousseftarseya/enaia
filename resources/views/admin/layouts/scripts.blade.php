@@ -6,6 +6,7 @@
 <script src="{{ asset('build/libs/metismenujs/metismenujs.min.js') }}"></script>
 <script src="{{ asset('build/libs/simplebar/simplebar.min.js') }}"></script>
 <script src="{{ asset('build/libs/eva-icons/eva.min.js') }}"></script>
+<script src="{{ asset('build/js/custom.js') }}"></script>
 {{-- select2 --}}
 <script src="{{ asset('build/js/select2-custom.js') }}"></script>
 <script src="{{ asset('build/js/select2.full.min.js') }}"></script>
