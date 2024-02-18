@@ -13,7 +13,7 @@ class StoreHeadNurseRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->nurse?->id;
+        $id = $this->head_nurse?->id;
         return [
             'image' => ['nullable', 'image' , 'mimes:jpeg,png,jpg'],
             'name' => ['required'],

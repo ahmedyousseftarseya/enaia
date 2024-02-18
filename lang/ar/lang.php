@@ -2,6 +2,13 @@
 
 return [
    
+    'admins' => 'المشرفين',
+    'admin' => 'مشرف',
+    'admins_list' => 'قائمة المشرفين',
+    'password_confirmation' => 'تاكيد كلمة المرور',
+    'role' => 'الصلاحية',
+
+
     'head_nurses' => 'رؤساء الممرضات',
     'head_nurse' => 'رئيسة تمريض',
     'head_nurses_list' => 'قائمة رؤساء الممرضات',

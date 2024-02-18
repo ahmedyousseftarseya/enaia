@@ -1,6 +1,16 @@
 <?php
 
 return [
+    'admins' => 'Admins',
+    'admin' => 'Admin',
+    'admins_list' => 'Admins List',
+    'password_confirmation' => 'Password Confirmation',
+    'role' => 'Role',
+
+    'head_nurses' => 'Head Nurses',
+    'head_nurse' => 'Head Nurse',
+    'head_nurses_list' => 'Head Nurses List',
+
     'nurses' => 'Nurses',
     'nurse' => 'Nurse',
     'nurses_list' => 'Nurses list',

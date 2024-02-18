@@ -30,7 +30,7 @@ class LaratrustSetupTables extends Migration
             $table->string('display_name')->nullable();
             $table->string('description')->nullable();
             $table->string('path')->nullable();
-            $table->boolean('is_admin')->default(0);
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
 

@@ -21,4 +21,18 @@ class Admin extends Authenticatable
             return asset($this->image);
         return asset('build/images/user.png');
     }
+
+    public function  getRole()
+    {
+        return $this->roles()->first();
+    }
+
+    public function scopeFilter($q)
+    {
+        if (request('search')) {
+            $q->where('username', 'like', '%' . request('search') . '%')
+            ->orWhere('email', 'like', '%' . request('search') . '%')
+                ->orWhere('phone', 'like', '%' . request('search') . '%');
+        }
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DoctorController;
@@ -38,6 +39,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('doctors', DoctorController::class);
     Route::resource('nurses', NurseController::class);
     Route::resource('head-nurses', HeadNurseController::class);
+    Route::resource('admins', AdminController::class);
 });
 
 

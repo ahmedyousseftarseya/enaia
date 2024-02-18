@@ -85,6 +85,22 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-user icon nav-icon"></i>
+                        <span class="menu-item">{{ __('lang.admins') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.admins.index') }}">{{ __('lang.admins_list') }}
+                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            </a>
+                        </li>
+                        
+                        <li><a href="{{ route('admin.admins.create') }}">{{ __('lang.add') . ' ' . __('lang.admin') }}</a></li>
+                    </ul>
+                </li>
+
                 
                 {{-- <li class="menu-title" data-key="t-applications">Applications</li> --}}
                 {{-- <li>

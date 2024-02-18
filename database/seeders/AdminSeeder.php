@@ -16,16 +16,16 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $data = [
-            'username' => 'ahmed',
+            'username' => 'test',
             'email' => 'test@test.com',
             'password' => bcrypt(123456),
             'phone' => '01159472369',
         ];
 
-        $admin = Admin::where('email', 'test@test.com')->first();
+        $admin = Admin::where('email', $data['email'])->first();
 
         if(!$admin){
-            Admin::updateOrCreate($data);
+            Admin::create($data);
         }
     }
 }
