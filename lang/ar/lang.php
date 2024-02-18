@@ -2,6 +2,10 @@
 
 return [
    
+    'head_nurses' => 'رؤساء الممرضات',
+    'head_nurse' => 'رئيسة تمريض',
+    'head_nurses_list' => 'قائمة رؤساء الممرضات',
+
     'nurses' => 'الممرضات',
     'nurse' => 'ممرضة',
     'nurses_list' => 'قائمة الممرضات',

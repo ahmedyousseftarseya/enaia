@@ -21,7 +21,7 @@
 
 
     {{-- form --}}
-    @component('admin.layouts.components.card', ['title' => $title, 'class' => 'p-2'])
+    @component('admin.layouts.components.card', ['title' => '', 'class' => 'p-2'])
 
         @slot('content')
 

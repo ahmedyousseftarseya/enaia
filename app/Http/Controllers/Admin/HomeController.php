@@ -11,5 +11,12 @@ class HomeController extends Controller
     {
         return view('admin.index');
     }
+
+    public function notFound() {
+        if(view()->exists(request()->path())) {
+            return view(request()->path());
+        }
+        return view('admin.errors.404');
+    }
  
 }

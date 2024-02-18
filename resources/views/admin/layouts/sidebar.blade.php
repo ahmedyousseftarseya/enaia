@@ -69,6 +69,22 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-user icon nav-icon"></i>
+                        <span class="menu-item">{{ __('lang.head_nurses') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.head-nurses.index') }}">{{ __('lang.head_nurses_list') }}
+                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            </a>
+                        </li>
+                        
+                        <li><a href="{{ route('admin.head-nurses.create') }}">{{ __('lang.add') . ' ' . __('lang.head_nurse') }}</a></li>
+                    </ul>
+                </li>
+
                 
                 {{-- <li class="menu-title" data-key="t-applications">Applications</li> --}}
                 {{-- <li>
@@ -96,9 +112,9 @@
                         <span class="menu-item" data-key="t-chat">Chat</span>
                         <span class="badge rounded-pill bg-danger" data-key="t-hot">Hot</span>
                     </a>
-                </li>
+                </li> --}}
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-store icon nav-icon"></i>
                         <span class="menu-item" data-key="t-ecommerce">Ecommerce</span>
