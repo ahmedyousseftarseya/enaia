@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'select_all' => 'Select All',
+    'roles' => 'Roles',
+    'role' => 'Role',
+    'roles_list' => 'Roles List',
+    'display_name' => 'Display Name',
+    
     'active' => 'Active',
     'services' => 'Services',
     'service' => 'Service',

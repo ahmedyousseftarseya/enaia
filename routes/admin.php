@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\LangController;
 use App\Http\Controllers\Admin\NurseController;
 use App\Http\Controllers\Admin\HeadNurseController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,9 +41,12 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('doctors', DoctorController::class);
     Route::resource('nurses', NurseController::class);
     Route::resource('head-nurses', HeadNurseController::class);
-    Route::resource('admins', AdminController::class);
+
     Route::resource('services', ServiceController::class);
     Route::post('change-status', [ServiceController::class, 'changeStatus'])->name('services.changeStatus');
+
+    Route::resource('admins', AdminController::class);
+    Route::resource('roles', RoleController::class);
 });
 
 

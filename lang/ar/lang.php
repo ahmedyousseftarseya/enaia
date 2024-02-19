@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'select_all' => 'تحديد الكل',
+    'roles' => 'الصلاحيات',
+    'roles_list' => 'قائمة الصلاحيات',
+    'display_name' => 'اسم العرض',
+
     'active' => 'تفعيل',
     'services' => 'الخدمات',
     'service' => 'خدمة',

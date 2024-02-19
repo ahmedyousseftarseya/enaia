@@ -88,6 +88,22 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-user icon nav-icon"></i>
+                        <span class="menu-item">{{ __('lang.services') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.services.index') }}">{{ __('lang.services_list') }}
+                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            </a>
+                        </li>
+                        
+                        <li><a href="{{ route('admin.services.create') }}">{{ __('lang.add') . ' ' . __('lang.service') }}</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-user icon nav-icon"></i>
                         <span class="menu-item">{{ __('lang.admins') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -104,16 +120,16 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-user icon nav-icon"></i>
-                        <span class="menu-item">{{ __('lang.services') }}</span>
+                        <span class="menu-item">{{ __('lang.roles') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{ route('admin.services.index') }}">{{ __('lang.services_list') }}
+                            <a href="{{ route('admin.roles.index') }}">{{ __('lang.roles_list') }}
                                 {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
                             </a>
                         </li>
                         
-                        <li><a href="{{ route('admin.services.create') }}">{{ __('lang.add') . ' ' . __('lang.service') }}</a></li>
+                        <li><a href="{{ route('admin.roles.create') }}">{{ __('lang.add') . ' ' . __('lang.role') }}</a></li>
                     </ul>
                 </li>
 
