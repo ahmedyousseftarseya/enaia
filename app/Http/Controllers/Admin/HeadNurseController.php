@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreHeadNurseRequest;
 use App\Models\HeadNurse;
+use App\Models\Nurse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class HeadNurseController extends Controller
@@ -35,8 +37,10 @@ class HeadNurseController extends Controller
      */
     public function create()
     {
+        $nurses = Nurse::pluck('name', 'id')->toArray();
         return view('admin.head_nurses.form', [
             'resource' => $this->model,
+            'nurses' => $nurses
         ]);
     }
 
@@ -48,7 +52,12 @@ class HeadNurseController extends Controller
         $data = $request->validated();
         $request->image ? $data['image'] = uploadFile($data['image'], config('upload_pathes.head_nurses')) : null;
         $data['password'] ? bcrypt($data['password']) : null;
-        $this->model->create($data);
+
+        DB::beginTransaction();
+        $headNurse = $this->model->create($data);
+        $headNurse->nurses()->sync($request->nurses);
+        DB::commit();
+
         toast(__('lang.created'), 'success');
         return redirect()->route('admin.head-nurses.index');
     }
@@ -65,8 +74,10 @@ class HeadNurseController extends Controller
      */
     public function edit(HeadNurse $headNurse)
     {
+        $nurses = Nurse::pluck('name', 'id')->toArray();
         return view('admin.head_nurses.form', [
             'resource' => $headNurse,
+            'nurses' => $nurses
         ]);
     }
 
@@ -81,7 +92,12 @@ class HeadNurseController extends Controller
             $data['image'] = uploadFile($data['image'], config('upload_pathes.head_nurses'));
         }
         $data['password'] ? bcrypt($request->password) : $headNurse->password;
+
+        DB::beginTransaction();
         $headNurse->update($data);
+        $headNurse->nurses()->sync($request->nurses);
+        DB::commit();
+        
         toast(__('lang.updated'), 'success');
         return redirect()->route('admin.head-nurses.index');
     }
