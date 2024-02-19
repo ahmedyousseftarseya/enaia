@@ -47,7 +47,7 @@ class NurseController extends Controller
     {
         $data = $request->validated();
         $request->image ? $data['image'] = uploadFile($data['image'], config('upload_pathes.nurses')) : null;
-        $data['password'] ? bcrypt($data['password']) : null;
+        $data['password'] ? $data['password'] = bcrypt($data['password']) : $data['password'] = null;
         $this->model->create($data);
         toast(__('lang.created'), 'success');
         return redirect()->route('admin.nurses.index');
@@ -80,7 +80,8 @@ class NurseController extends Controller
             File::delete($nurse->image);
             $data['image'] = uploadFile($data['image'], config('upload_pathes.nurses'));
         }
-        $data['password'] ? bcrypt($request->password) : $nurse->password;
+        $data['password'] ? $data['password'] = bcrypt($request->password) : $data['password'] = $nurse->password;
+        
         $nurse->update($data);
         toast(__('lang.updated'), 'success');
         return redirect()->route('admin.nurses.index');

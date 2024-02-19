@@ -42,6 +42,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('head-nurses', HeadNurseController::class);
     Route::resource('admins', AdminController::class);
     Route::resource('services', ServiceController::class);
+    Route::post('change-status', [ServiceController::class, 'changeStatus'])->name('services.changeStatus');
 });
 
 

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'active' => 'Active',
     'services' => 'Services',
     'service' => 'Service',
     'services_list' => 'Services List',

@@ -45,6 +45,8 @@ class ServiceController extends Controller
     {
         $data = $request->validated();
         $request->image ? $data['image'] = uploadFile($data['image'], config('upload_pathes.services')) : null;
+        isset($data['active']) ? $data['active'] = 1 : $data['active'] = 0;
+
         $this->model->create($data);
         toast(__('lang.created'), 'success');
         return redirect()->route('admin.services.index');
@@ -70,6 +72,7 @@ class ServiceController extends Controller
             File::delete($service->image);
             $data['image'] = uploadFile($data['image'], config('upload_pathes.services'));
         }
+        isset($data['active']) ? $data['active'] = 1 : $data['active'] = 0;
 
         $service->update($data);
         
@@ -89,5 +92,16 @@ class ServiceController extends Controller
 
         toast(__('lang.deleted'), 'success');
         return redirect()->route('admin.services.index');
+    }
+
+    public function changeStatus()
+    {
+        $data = request()->validate([
+            'id' => 'required|exists:services,id',
+        ]);
+        $service = Service::find($data['id']);
+        $service->active = !$service->active;
+        $service->save();
+        return response()->json(['success' => true, 'message' => __('lang.updated')]);
     }
 }

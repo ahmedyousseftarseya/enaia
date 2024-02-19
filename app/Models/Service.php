@@ -11,7 +11,7 @@ class Service extends Model implements TranslatableContract
     use Translatable;
 
     protected array $translatedAttributes = ['title', 'description'];
-    protected $fillable = ['image'];
+    protected $fillable = ['image', 'active'];
 
     protected $appends = ['image_url'];
 

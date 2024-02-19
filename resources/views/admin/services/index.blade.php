@@ -3,7 +3,7 @@
 @section('title', __('lang.services_list'))
 
 
-@section('page-title', __('lang.nurses'))
+@section('page-title', __('lang.services'))
 
 @section('content')
 
@@ -35,7 +35,7 @@
     @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
-            <a href="{{ route('admin.services.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.service') }}</a>
+            <a href="{{ route('admin.services.create') }}" class="btn btn-primary">{{ __('lang.add') . ' ' . __('lang.service') }}</a>
         @endslot
 
         @slot('content')
@@ -46,6 +46,7 @@
                     <th>#</th>
                     <th>{{ __('lang.title') }}</th>
                     <th>{{ __('lang.description') }}</th>
+                    <th>{{ __('lang.active') }}</th>
                     <th>{{ __('lang.action') }}</th>
                 @endslot
 
@@ -66,6 +67,13 @@
                                     {{ $resource->title }}
                                 </td>
                                 <td>{{ $resource->description }}</td>
+                                <td>
+                                    <div class="form-check form-switch mt-4 d-flex align-items-center border-dark">
+                                        <input class="form-check-input" onchange="changeStatus({{ $resource->id }})" type="checkbox"
+                                            role="switch" id="switchCheck-{{ $resource->id }}" name="active"
+                                            {{ $resource->active || !$resource->id ? 'checked' : '' }}>
+                                    </div>
+                                </td>
                                 <td>
                                     <a href="{{ route('admin.services.edit', $resource->id) }}" class="btn btn-xs btn-primary">
                                         <span class="fa fa-edit"></span>
@@ -99,3 +107,24 @@
     </div>
 
 @endSection
+
+
+@section('scripts')
+    <script>
+        function changeStatus(id) {
+            if (confirm("{{ __('lang.are_you_sure') }}")) {
+
+                $.post("{{ route('admin.services.changeStatus') }}", {
+                    id: id,
+                    _token: "{{ csrf_token() }}"
+                }, function(data) {
+                    if (data.success) {
+                        alert(data.message);
+                    }
+                })
+            } else {
+                $('#switchCheck-' + id).prop('checked', !$('#switchCheck-' + id).prop('checked'));
+            }
+        }
+    </script>
+@endsection

@@ -30,6 +30,11 @@
         font-family: 'Tajawal', sans-serif;
     }
 
+    .form-switch .form-check-input {
+        border: 1px solid #1f58c7;
+        margin-left: -2em;
+    }
+
     /* image classes */
     .img-200 {
         height: 200px;

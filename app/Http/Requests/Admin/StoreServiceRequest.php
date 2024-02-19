@@ -19,7 +19,8 @@ class StoreServiceRequest extends FormRequest
             'ar.title' => ['required',  Rule::unique('service_translations', 'title')->ignore($id, 'service_id')], 
             'en.title' => ['required',  Rule::unique('service_translations', 'title')->ignore($id, 'service_id')], 
             'ar.description' => ['nullable'], 
-            'en.description' => ['nullable'], 
+            'en.description' => ['nullable'],
+            'active' => ['nullable'],
         ];
     }
     

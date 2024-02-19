@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'active' => 'تفعيل',
     'services' => 'الخدمات',
     'service' => 'خدمة',
     'services_list' => 'قائمة الخدمات',

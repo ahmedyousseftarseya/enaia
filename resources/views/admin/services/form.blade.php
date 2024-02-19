@@ -83,6 +83,11 @@
                         </div>
                     @endforeach
 
+                    <div class="form-check form-switch mt-4 d-flex align-items-center border-dark">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switchCheck" name="active" {{ $resource->active || !$resource->id ? 'checked' : '' }}>
+                        <label class="form-check-label {{ isRtl() ? 'me-5' : 'ms-5' }}" for="switchCheck">{{ __('lang.active') }}</label>
+                    </div>
+
                    
                     <div class="mt-4">
                         <button type="submit" class="btn btn-primary">{{ __('lang.save') }}</button>

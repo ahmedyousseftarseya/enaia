@@ -98,7 +98,7 @@ class DoctorController extends Controller
             File::delete($doctor->image);
             $data['image'] = uploadFile($data['image'], config('upload_pathes.doctors'));
         }
-        $data['password'] ? bcrypt($request->password) : $doctor->password;
+        $request->password ? bcrypt($request->password) : $doctor->password;
 
         DB::beginTransaction();
         $doctor->update($data);
