@@ -42,7 +42,6 @@
     }
 
     /* customize select2 */
-    .form-control,
     .select2,
     .selection {
         border-radius: 10px !important;
@@ -51,6 +50,13 @@
         padding: 8px 16px !important;
     }
     
+    .form-control
+    {
+        border-radius: 10px !important;
+        border: 1px solid #dbd6d6 !important;
+        padding: 8px 16px !important;
+    }
+
     .selection {
         border: none !important;
         padding: 0px !important;

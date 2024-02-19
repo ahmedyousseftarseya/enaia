@@ -104,8 +104,11 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
+        DB::beginTransaction();
         File::delete($admin->image);
         $admin->delete();
+        DB::commit();
+        
         toast(__('lang.deleted'), 'success');
         return redirect()->route('admin.admins.index');
     }

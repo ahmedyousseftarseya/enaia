@@ -24,9 +24,6 @@ class HeadNurseController extends Controller
     public function index()
     {
         $resources = $this->model->latest()->filter(request())->paginate(self::$pagination);
-        $title = __('lang.confirm_delete');
-        $text = __('lang.confirm_delete_message');
-        confirmDelete($title, $text);
         return view('admin.head_nurses.index', [
             'resources' => $resources,
         ]);
@@ -69,7 +66,7 @@ class HeadNurseController extends Controller
     {
     }
 
-    /**HeadNurse
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(HeadNurse $headNurse)
@@ -107,8 +104,11 @@ class HeadNurseController extends Controller
      */
     public function destroy(HeadNurse $headNurse)
     {
+        DB::beginTransaction();
         File::delete($headNurse->image);
         $headNurse->delete();
+        DB::commit();
+        
         toast(__('lang.deleted'), 'success');
         return redirect()->route('admin.head-nurses.index');
     }

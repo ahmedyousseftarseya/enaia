@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'services' => 'الخدمات',
+    'service' => 'خدمة',
+    'services_list' => 'قائمة الخدمات',
+    'title_ar' => 'العنوان بالعربي',
+    'title_en' => 'العنوان بالانجليزي',
+    'description_ar' => 'الوصف بالعربي',
+    'description_en' => 'الوصف بالانجليزي',
+    'title' => 'العنوان',
+    'description' => 'الوصف',
    
     'admins' => 'المشرفين',
     'admin' => 'مشرف',

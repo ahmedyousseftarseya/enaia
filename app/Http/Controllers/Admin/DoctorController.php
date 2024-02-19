@@ -114,8 +114,10 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
+        DB::beginTransaction();
         File::delete($doctor->image);
         $doctor->delete();
+        DB::commit();
         toast(__('lang.deleted'), 'success');
         return redirect()->route('admin.doctors.index');
     }

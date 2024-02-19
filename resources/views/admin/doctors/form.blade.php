@@ -96,7 +96,7 @@
                             <span class="text-danger fs-6">*</span>
                             {{ html()->textarea("$locale" . '[about]', old("$locale" . '[about]', optional($doctor->translate($locale))->about))
                                 ->class('form-control') 
-                                ->attributes(['required', 'rows' => 5, 'style' => 'resize: none'])
+                                ->attributes(['required', 'rows' => 7, 'style' => 'resize: none'])
                                 ->placeholder(__('lang.about_' . $locale))
                             }}
 
@@ -113,7 +113,7 @@
                             <span class="text-danger fs-6">*</span>
                             {{ html()->textarea("$locale" . '[experience]', old("$locale" . '[experience]', optional($doctor->translate($locale))->experience))
                                 ->class('form-control') 
-                                ->attributes(['required', 'rows' => 5, 'style' => 'resize: none'])
+                                ->attributes(['required', 'rows' => 7, 'style' => 'resize: none'])
                                 ->placeholder(__('lang.experience_' . $locale))
                             }}
 

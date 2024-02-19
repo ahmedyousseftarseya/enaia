@@ -1,6 +1,16 @@
 <?php
 
 return [
+    'services' => 'Services',
+    'service' => 'Service',
+    'services_list' => 'Services List',
+    'title_ar' => 'Title in Arabic',
+    'title_en' => 'Title in English',
+    'description_ar' => 'Description in Arabic',
+    'description_en' => 'Description in English',
+    'title' => 'Title',
+    'description' => 'Description',
+    
     'admins' => 'Admins',
     'admin' => 'Admin',
     'admins_list' => 'Admins List',
