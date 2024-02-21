@@ -62,6 +62,11 @@
         padding: 8px 16px !important;
     }
 
+     .form-select
+    {
+        border: 1px solid #dbd6d6 !important;
+    }
+
     .selection {
         border: none !important;
         padding: 0px !important;

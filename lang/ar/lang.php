@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'status' => 'الحالة',
+    'lat' => 'خط العرض',
+    'lng' => 'خط الطول',
+    'blood_group' => 'فصيلة الدم',
+    'nationality' => 'الجنسية',
+    'national_id' => 'رقم الهوية',
+    'date_of_birth' => 'تاريخ الميلاد',
+    'customers' => 'العملاء',
+    'customer' => 'عميل',
+    'customers_list' => 'قائمة العملاء',
+    'male' => 'ذكر',
+    'female' => 'انثى',
+    'gender' => 'الجنس',
     'overview' => 'نظرة عامة',
     'reservations' => 'الحجوزات',
     'address' => 'العنوان',
@@ -10,7 +23,8 @@ return [
     'roles_list' => 'قائمة الصلاحيات',
     'display_name' => 'اسم العرض',
 
-    'active' => 'تفعيل',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
     'services' => 'الخدمات',
     'service' => 'خدمة',
     'services_list' => 'قائمة الخدمات',
@@ -68,7 +82,7 @@ return [
     'filter' => 'بحث',
     'action' => 'الاجراء',
     'reset' => 'الغاء',
-    'select-item' => 'اختر عنصر',
+    'select_item' => 'اختر عنصر',
     'yes' => 'نعم',
     'no' => 'لا',
     'confirm_delete' => 'تأكيد الحذف',

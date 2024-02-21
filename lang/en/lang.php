@@ -1,6 +1,18 @@
 <?php
 
 return [
+    'lat' => 'Latitude',
+    'lng' => 'Longitude',
+    'blood_group' => 'Blood Group',
+    'nationality' => 'Nationality',
+    'national_id' => 'National ID',
+    'date_of_birth' => 'Date of Birth',
+    'customers' => 'Customers',
+    'customer' => 'Customer',
+    'customers_list' => 'Customers List',
+    'male' => 'Male',
+    'female' => 'Female',
+    'gender' => 'Gender',
     'overview' => 'Overview',
     'reservations' => 'Reservations',
     'address' => 'Address',
@@ -12,6 +24,7 @@ return [
     'display_name' => 'Display Name',
     
     'active' => 'Active',
+    'inactive' => 'Inactive',
     'services' => 'Services',
     'service' => 'Service',
     'services_list' => 'Services List',

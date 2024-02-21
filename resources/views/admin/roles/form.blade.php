@@ -128,6 +128,11 @@
 @section('scripts')
 
     <script>
+        // if all inputs of checkbox is checked make select all checkbox checked
+        if ($('input[type="checkbox"]').length - 1 == $('input[type="checkbox"]:checked').length) {
+            $('#selectAll').prop('checked', true);
+        }
+        
         $('#selectAll').on('change', function() {
             if (this.checked) {
                 $('input[type="checkbox"]').each(function() {

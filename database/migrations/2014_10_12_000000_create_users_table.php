@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('nationality');
             $table->string('blood_group');
             $table->string('address');
+            $table->string('status')->default('active');
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
             $table->rememberToken()->nullable();
