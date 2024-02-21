@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'countries' =>  'Countries',
+    'country' => 'Country',
+    'countries_list' => 'Countries List',
+    'zip_code' => 'Zip Code',
+    'digit_number' => 'Digit Number',
     'lat' => 'Latitude',
     'lng' => 'Longitude',
     'blood_group' => 'Blood Group',

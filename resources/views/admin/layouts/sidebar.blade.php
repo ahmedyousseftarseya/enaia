@@ -147,7 +147,35 @@
                         <li><a href="{{ route('admin.roles.create') }}">{{ __('lang.add') . ' ' . __('lang.role') }}</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-user icon nav-icon"></i>
+                        <span class="menu-item">{{ __('lang.countries') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.countries.index') }}">{{ __('lang.countries_list') }}
+                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            </a>
+                        </li>
+                        
+                        <li><a href="{{ route('admin.countries.create') }}">{{ __('lang.add') . ' ' . __('lang.country') }}</a></li>
+                    </ul>
+                </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-user icon nav-icon"></i>
+                        <span class="menu-item">{{ __('lang.settings') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.settings.index') }}">{{ __('lang.settings_list') }}
+                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 
                 {{-- <li class="menu-title" data-key="t-applications">Applications</li> --}}
@@ -177,24 +205,6 @@
                         <span class="badge rounded-pill bg-danger" data-key="t-hot">Hot</span>
                     </a>
                 </li> --}}
-
-                {{-- <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-store icon nav-icon"></i>
-                        <span class="menu-item" data-key="t-ecommerce">Ecommerce</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ecommerce-products" data-key="t-products">Products</a></li>
-                        <li><a href="ecommerce-product-detail" data-key="t-product-detail">Product Detail</a></li>
-                        <li><a href="ecommerce-orders" data-key="t-orders">Orders</a></li>
-                        <li><a href="ecommerce-customers" data-key="t-customers">Customers</a></li>
-                        <li><a href="ecommerce-cart" data-key="t-cart">Cart</a></li>
-                        <li><a href="ecommerce-checkout" data-key="t-checkout">Checkout</a></li>
-                        <li><a href="ecommerce-shops" data-key="t-shops">Shops</a></li>
-                        <li><a href="ecommerce-add-product" data-key="t-add-product">Add Product</a></li>
-                    </ul>
-                </li> --}}
-
             </ul>
         </div>
         <!-- Sidebar -->

@@ -7,5 +7,6 @@ return [
     'admins' => 'uploads/admins/',
     'services' => 'uploads/services/',
     'users' => 'uploads/users/',
+    'countries' => 'uploads/countries/',
     
 ];

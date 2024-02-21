@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'countries' =>  'الدول',
+    'country' => 'دولة',
+    'countries_list' => 'قائمة الدول',
+    'zip_code' => 'الرمز البريدي',
+    'digit_number' => 'عدد الأرقام',
     'status' => 'الحالة',
     'lat' => 'خط العرض',
     'lng' => 'خط الطول',

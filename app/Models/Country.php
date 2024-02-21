@@ -13,4 +13,20 @@ class Country extends Model implements TranslatableContract
     protected array $translatedAttributes = ['name'];
 
     protected $fillable = ['image', 'zip_code', 'digit_number'];
+
+    protected $appends = ['image_url'];
+    
+    public function getImageUrlAttribute()
+    {
+        if ($this->image)
+            return asset($this->image);
+        return asset('build/images/country.jpg');
+    }
+
+    public function scopeFilter($q)
+    {
+        if (request('search')) {
+            $q->whereTranslationLike('name', request('search'));
+        }
+    }
 }

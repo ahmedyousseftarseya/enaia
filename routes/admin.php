@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\NurseController;
 use App\Http\Controllers\Admin\HeadNurseController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,15 +43,17 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('doctors', DoctorController::class);
     Route::resource('nurses', NurseController::class);
     Route::resource('head-nurses', HeadNurseController::class);
-
-    Route::resource('services', ServiceController::class);
-    Route::post('services/change-status', [ServiceController::class, 'changeStatus'])->name('services.changeStatus');
-    
-    Route::resource('admins', AdminController::class);
-    Route::resource('roles', RoleController::class);
-
+   
     Route::resource('users', UserController::class);
     Route::post('users/change-status', [UserController::class, 'changeStatus'])->name('users.changeStatus');
+
+    Route::resource('settings', SettingController::class);
+    Route::resource('services', ServiceController::class);
+    Route::post('services/change-status', [ServiceController::class, 'changeStatus'])->name('services.changeStatus');
+    Route::resource('admins', AdminController::class);
+    Route::resource('roles', RoleController::class);
+    Route::resource('countries', CountryController::class);
+
 });
 
 
