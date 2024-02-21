@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\LangController;
 use App\Http\Controllers\Admin\NurseController;
@@ -53,6 +55,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('admins', AdminController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('countries', CountryController::class);
+    Route::resource('cities', CityController::class);
 
 });
 

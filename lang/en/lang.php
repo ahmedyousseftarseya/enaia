@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'no_data' => 'No Data',
+    'cities' => 'Cities',
+    'city' => 'City',
+    'cities_list' => 'Cities List',
     'countries' =>  'Countries',
     'country' => 'Country',
     'countries_list' => 'Countries List',

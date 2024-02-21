@@ -15,4 +15,15 @@ class City extends Model implements TranslatableContract
     public function country() {
         return $this->belongsTo(Country::class);
     }
+
+    public function scopeFilter($q)
+    {
+        if (request('search')) {
+            $q->whereTranslationLike('name', request('search'));
+        }
+
+        if(request()->country_id) {
+            $q->where('country_id', request()->country_id);
+        }
+    }
 }

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'no_data' => 'لا يوجد بيانات',
+    'cities' => 'المدن',
+    'city' => 'مدينة',
+    'cities_list' => 'قائمة المدن',
     'countries' =>  'الدول',
     'country' => 'دولة',
     'countries_list' => 'قائمة الدول',

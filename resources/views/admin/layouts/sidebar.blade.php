@@ -147,6 +147,7 @@
                         <li><a href="{{ route('admin.roles.create') }}">{{ __('lang.add') . ' ' . __('lang.role') }}</a></li>
                     </ul>
                 </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-user icon nav-icon"></i>
@@ -160,6 +161,23 @@
                         </li>
                         
                         <li><a href="{{ route('admin.countries.create') }}">{{ __('lang.add') . ' ' . __('lang.country') }}</a></li>
+                    </ul>
+                </li>
+
+                 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="bx bx-user icon nav-icon"></i>
+                        <span class="menu-item">{{ __('lang.cities') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.cities.index') }}">{{ __('lang.cities_list') }}
+                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            </a>
+                        </li>
+                        
+                        <li><a href="{{ route('admin.cities.create') }}">{{ __('lang.add') . ' ' . __('lang.city') }}</a></li>
                     </ul>
                 </li>
 

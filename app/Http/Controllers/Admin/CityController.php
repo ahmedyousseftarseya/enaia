@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreCityRequest;
 use App\Http\Requests\Admin\StoreCountryRequest;
+use App\Models\City;
 use App\Models\Country;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
-class CountryController extends Controller
+class CityController extends Controller
 {
     protected $model = null;
 
-    public function __construct(Country $model)
+    public function __construct(City $model)
     {
         $this->model = $model;
     }
@@ -23,8 +25,10 @@ class CountryController extends Controller
     public function index()
     {
         $resources = $this->model->latest()->filter(request())->paginate(self::$pagination);
-        return view('admin.countries.index', [
+        $countries = Country::get()->pluck('name', 'id')->toArray();
+        return view('admin.cities.index', [
             'resources' => $resources,
+            'countries' => $countries
         ]);
     }
 
@@ -33,63 +37,55 @@ class CountryController extends Controller
      */
     public function create()
     {
-        return view('admin.countries.form', [
+        $countries = Country::get()->pluck('name', 'id')->toArray();
+        return view('admin.cities.form', [
             'resource' => $this->model,
+            'countries' => $countries
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCountryRequest $request)
+    public function store(StoreCityRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = uploadFile($data['image'], config('upload_pathes.countries')) ;
-
         $this->model->create($data);
-
         toast(__('lang.created'), 'success');
-        return redirect()->route('admin.countries.index');
+        return redirect()->route('admin.cities.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Country $country)
+    public function edit(City $city)
     {
-        return view('admin.countries.form', [
-            'resource' => $country,
+        $countries = Country::get()->pluck('name', 'id')->toArray();
+        return view('admin.cities.form', [
+            'resource' => $city,
+            'countries' => $countries
         ]);
     }
 
     /**
      * Update the specified resource in storageheadN
      */
-    public function update(StoreCountryRequest $request, Country $country)
+    public function update(StoreCityRequest $request, City $city)
     {
         $data = $request->validated();
-        if($request->hasFile('image')) {
-            File::delete($country->image);
-            $data['image'] = uploadFile($data['image'], config('upload_pathes.countries'));
-        }
-
-        $country->update($data);
-        
+        $city->update($data);
         toast(__('lang.updated'), 'success');
-        return redirect()->route('admin.countries.index');
+        return redirect()->route('admin.cities.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Country $country)
+    public function destroy(City $city)
     {
-        DB::beginTransaction();
-        File::delete($country->image);
-        $country->delete();
-        DB::commit();
+        $city->delete();
         
         toast(__('lang.deleted'), 'success');
-        return redirect()->route('admin.countries.index');
+        return redirect()->route('admin.cities.index');
     }
 }
