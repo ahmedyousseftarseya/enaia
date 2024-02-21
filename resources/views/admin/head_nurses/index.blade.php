@@ -46,6 +46,7 @@
                     <th>#</th>
                     <th>{{ __('lang.name') }}</th>
                     <th>{{ __('lang.phone') }}</th>
+                    <th>{{ __('lang.address') }}</th>
                     <th>{{ __('lang.action') }}</th>
                 @endslot
 
@@ -66,6 +67,7 @@
                                     {{ $resource->name }}
                                 </td>
                                 <td>{{ $resource->phone }}</td>
+                                <td>{{ $resource->address ?? '-' }}</td>
                                 <td>
                                     <a href="{{ route('admin.head-nurses.edit', $resource->id) }}" class="btn btn-xs btn-primary">
                                         <span class="fa fa-edit"></span>

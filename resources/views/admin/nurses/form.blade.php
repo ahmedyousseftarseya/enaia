@@ -38,7 +38,7 @@
                     
                     <div class="text-center mb-5">
                         <img class="img-200 rounded-circle image-preview position-relative" alt="dsds"
-                            src="{{ asset($nurse->image ?? 'build/images/user.png') }}">
+                            src="{{ asset($nurse->image_url) }}">
                         <label for="fileid" style="left: 49%; bottom: -20%"  class="position-absolute text-white">
                             <span style="color: gray; cursor: pointer"><i class='fa fa-camera'></i></span>
                         </label>
@@ -74,6 +74,19 @@
                         }}
 
                         @error('phone')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        {{ html()->label(__('lang.address')) }}
+                        {{ html()->text("address", old("address", optional($nurse)->address))
+                            ->class('form-control')
+                            ->attribute('required')
+                            ->placeholder(__('lang.address'))
+                        }}
+
+                        @error('address')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

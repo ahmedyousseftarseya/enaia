@@ -26,9 +26,7 @@ class DoctorController extends Controller
     {
         $doctors = $this->model->latest()->filter(request())->paginate(self::$pagination);
         $specializations = Specialization::get()->pluck('name', 'id')->toArray();
-        $title = __('lang.confirm_delete');
-        $text = __('lang.confirm_delete_message');
-        confirmDelete($title, $text);
+       
         return view('admin.doctors.index', [
             'doctors' => $doctors,
             'specializations' => $specializations
@@ -64,7 +62,7 @@ class DoctorController extends Controller
         DB::commit();
 
         toast(__('lang.created'), 'success');
-        return redirect()->route('admin.doctors.index');
+        return redirect()->back();
     }
 
     /**
@@ -72,6 +70,10 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
+        $data = $doctor->load('specialization', 'nurses');
+        return view('admin.doctors.show', [
+            'doctor' => $data
+        ]);
     }
 
     /**
@@ -119,6 +121,6 @@ class DoctorController extends Controller
         $doctor->delete();
         DB::commit();
         toast(__('lang.deleted'), 'success');
-        return redirect()->route('admin.doctors.index');
+        return redirect()->back();
     }
 }

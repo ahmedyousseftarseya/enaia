@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nurse extends Model
 {
-    protected $fillable = ['image', 'name', 'phone', 'password'];
+    protected $guarded = [];
 
     protected $appends = ['image_url'];
 
@@ -14,7 +14,7 @@ class Nurse extends Model
     {
         if ($this->image)
             return asset($this->image);
-        return asset('build/images/user.png');
+        return asset('build/images/nurse.jpg');
     }
 
     public function scopeFilter($q)

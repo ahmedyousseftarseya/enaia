@@ -95,6 +95,6 @@ class NurseController extends Controller
         File::delete($nurse->image);
         $nurse->delete();
         toast(__('lang.deleted'), 'success');
-        return redirect()->route('admin.nurses.index');
+        return redirect()->back();
     }
 }

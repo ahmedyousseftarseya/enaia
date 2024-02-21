@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'overview' => 'Overview',
+    'reservations' => 'Reservations',
+    'address' => 'Address',
+    'delete' => 'Delete',
     'select_all' => 'Select All',
     'roles' => 'Roles',
     'role' => 'Role',
@@ -40,6 +44,8 @@ return [
     'name_en' => 'Name in English',
     'about_ar' => 'About doctor in Arabic',
     'about_en' => 'About doctor in English',
+    'about' => 'About doctor',
+    'experience' => 'Experience',
     'experience_ar' => 'Experience in Arabic',
     'experience_en' => 'Experience in English',
     'name' => 'Name',

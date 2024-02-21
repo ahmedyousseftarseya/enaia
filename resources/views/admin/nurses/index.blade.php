@@ -46,6 +46,7 @@
                     <th>#</th>
                     <th>{{ __('lang.name') }}</th>
                     <th>{{ __('lang.phone') }}</th>
+                    <th>{{ __('lang.address') }}</th>
                     <th>{{ __('lang.action') }}</th>
                 @endslot
 
@@ -66,6 +67,7 @@
                                     {{ $nurse->name }}
                                 </td>
                                 <td>{{ $nurse->phone }}</td>
+                                <td>{{ $nurse->address ?? '-' }}</td>
                                 <td>
                                     <a href="{{ route('admin.nurses.edit', $nurse->id) }}" class="btn btn-xs btn-primary">
                                         <span class="fa fa-edit"></span>

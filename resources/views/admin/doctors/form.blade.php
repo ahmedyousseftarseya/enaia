@@ -38,7 +38,7 @@
                     
                     <div class="text-center mb-5">
                         <img class="img-200 rounded-circle image-preview position-relative" alt="dsds"
-                            src="{{ asset($doctor->image ?? 'build/images/user.png') }}">
+                            src="{{ asset($doctor->image_url) }}">
                         <label for="fileid" style="left: 49%; bottom: -20%"  class="position-absolute text-white">
                             <span style="color: gray; cursor: pointer"><i class='fa fa-camera'></i></span>
                         </label>

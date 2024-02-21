@@ -71,6 +71,9 @@
                                 <td>{{ $doctor->email }}</td>
                                 <td>{{ $doctor->phone }}</td>
                                 <td>
+                                    <a href="{{ route('admin.doctors.show', $doctor->id) }}" class="btn btn-xs btn-info">
+                                        <span class="fa fa-eye"></span>
+                                    </a>
                                     <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-xs btn-primary">
                                         <span class="fa fa-edit"></span>
                                     </a>
@@ -83,11 +86,6 @@
                                             <span class="fa fa-trash"></span>
                                         </button>
                                     </form>
-
-                                    {{-- <a href="{{ route('admin.doctors.destroy', $doctor->id) }}"
-                                        class="btn btn-xs btn-danger" data-confirm-delete="true">
-                                        <span class="fa fa-trash"></span>
-                                    </a> --}}
 
                                 </td>
                             </tr>

@@ -38,13 +38,27 @@
                     
                     <div class="text-center mb-5">
                         <img class="img-200 rounded-circle image-preview position-relative" alt="dsds"
-                            src="{{ asset($resource->image ?? 'build/images/user.png') }}">
+                            src="{{ asset($resource->image_url) }}">
                         <label for="fileid" style="left: 49%; bottom: -20%"  class="position-absolute text-white">
                             <span style="color: gray; cursor: pointer"><i class='fa fa-camera'></i></span>
                         </label>
                         <input type="file" id="fileid" style="display: none" class="image form-control" name="image" accept="image/*">
 
                         @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        {{ html()->label(__('lang.role')) }}
+                        <span class="text-danger fs-6">*</span>
+                        {{ html()->select('role', $roles, old('role', $resource->getRole()->id ?? ''))
+                            ->class('form-control select2')
+                            ->attribute('required')
+                            ->placeholder(__('lang.select-item'))
+                        }}
+
+                        @error('role')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -120,22 +134,7 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-
-                    <div class="col-12 mt-4">
-                        {{ html()->label(__('lang.role')) }}
-                        <span class="text-danger fs-6">*</span>
-                        {{ html()->select('role', $roles, old('role', $resource->getRole()->id ?? ''))
-                            ->class('form-control select2')
-                            ->attribute('required')
-                            ->placeholder(__('lang.select-item'))
-                        }}
-
-                        @error('role')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
                     
-
                     <div class="mt-4">
                         <button type="submit" class="btn btn-primary">{{ __('lang.save') }}</button>
                     </div>

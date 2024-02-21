@@ -20,7 +20,7 @@ class Doctor extends Model implements TranslatableContract
     {
         if ($this->image)
             return asset($this->image);
-        return asset('build/images/user.png');
+        return asset('build/images/doctor.png');
     }
     
     public function specialization()

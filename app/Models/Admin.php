@@ -19,7 +19,7 @@ class Admin extends Authenticatable
     {
         if ($this->image)
             return asset($this->image);
-        return asset('build/images/user.png');
+        return asset('build/images/user.jpg');
     }
 
     public function  getRole()

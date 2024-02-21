@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'overview' => 'نظرة عامة',
+    'reservations' => 'الحجوزات',
+    'address' => 'العنوان',
+    'delete' => 'حذف',
     'select_all' => 'تحديد الكل',
     'roles' => 'الصلاحيات',
     'roles_list' => 'قائمة الصلاحيات',
@@ -40,6 +44,8 @@ return [
     'name_en' => 'الاسم بالانجليزي',
     'about_ar' => 'عن الطبيب بالعربي',
     'about_en' => 'عن الطبيب بالانجليزي',
+    'about' => 'عن الطبيب',
+    'experience' => 'الخبرة',
     'experience_ar' => 'الخبرة بالعربي',
     'experience_en' => 'الخبرة بالانجليزي',
     'name' => 'الاسم',

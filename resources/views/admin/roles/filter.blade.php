@@ -5,7 +5,7 @@
                 <label class="form-label">{{ __('lang.search') }}</label>
                 {{ html()->text('search', request('search'))
                     ->class('form-control') 
-                    ->placeholder(__('lang.search'). ' ' . __('lang.by') . ' ' . __('lang.title') . ', ' . __('lang.description'))
+                    ->placeholder(__('lang.search'). ' ' . __('lang.by') . ' ' . __('lang.name') . ', ' . __('lang.description'))
                 }}
             </div>
         </div>

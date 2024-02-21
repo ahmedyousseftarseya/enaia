@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class HeadNurse extends Model
 {
-    protected $fillable = ['image', 'name', 'phone', 'password'];
+    protected $guarded = [];
 
     protected $appends = ['image_url'];
 
@@ -15,7 +15,7 @@ class HeadNurse extends Model
     {
         if ($this->image)
             return asset($this->image);
-        return asset('build/images/user.png');
+        return asset('build/images/nurse.jpg');
     }
 
     public function nurses()
