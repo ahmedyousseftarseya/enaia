@@ -14,13 +14,16 @@ class LoginController extends Controller
     | Login Controller
     |--------------------------------------------------------------------------
     |
-    | This controller handles authenticating users for the application and
     | redirecting them to your home screen. The controller uses a trait
+    | This controller handles authenticating users for the application and
     | to conveniently provide its functionality to your applications.
     |
     */
 
     use AuthenticatesUsers;
+
+    protected $maxAttempts = 3; // Default is 5
+    protected $decayMinutes = 1; // Default is 1
 
     /**
      * Where to redirect users after login.
@@ -37,6 +40,11 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest:admin')->except('logout');
+    }
+
+    public function maxAttempts()
+    {
+        return property_exists($this, 'maxAttempts') ? $this->maxAttempts : 5; 
     }
 
     // login with username
