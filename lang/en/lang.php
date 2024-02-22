@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'edit_profile' => 'Edit Profile',
+    'profile' => 'Profile',
+    'english' => 'English',
+    'arabic' => 'Arabic',
     'settings' => 'Settings',
     'global_settings' => 'Global Settings',
     'contact_settings' => 'Contact Settings',
@@ -99,6 +103,7 @@ return [
     'password' => 'Password',
 
     'login' => 'Login',
+    'logout' => 'Logout',
     'username' => 'Username',
     'dashboard' => 'Dashboard',
 

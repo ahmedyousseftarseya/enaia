@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\LangController;
 use App\Http\Controllers\Admin\NurseController;
 use App\Http\Controllers\Admin\HeadNurseController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -42,6 +43,9 @@ Route::get('lang/{locale}', [LangController::class, 'index'])->name('lang');
 // 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
+
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+
     Route::resource('doctors', DoctorController::class);
     Route::resource('nurses', NurseController::class);
     Route::resource('head-nurses', HeadNurseController::class);
@@ -55,6 +59,7 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::resource('services', ServiceController::class);
     Route::post('services/change-status', [ServiceController::class, 'changeStatus'])->name('services.changeStatus');
+
     Route::resource('admins', AdminController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('countries', CountryController::class);

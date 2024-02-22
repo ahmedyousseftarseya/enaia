@@ -96,7 +96,7 @@ class AdminController extends Controller
         DB::commit();
 
         toast(__('lang.updated'), 'success');
-        return redirect()->route('admin.admins.index');
+        return redirect()->back();
     }
 
     /**

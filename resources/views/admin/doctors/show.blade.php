@@ -140,12 +140,12 @@
             <div class="tab-content">
                 {{-- overview --}}
                 <div class="tab-pane active" id="overview" role="tabpanel">
-                   @include('admin.doctors.__show.overview')
+                   @include('admin.doctors._show.overview')
                 </div>
 
                 {{-- reservations --}}
                 <div class="tab-pane" id="reservations" role="tabpanel">
-                   @include('admin.doctors.__show.reservations')
+                   @include('admin.doctors._show.reservations')
                 </div>
 
             </div>

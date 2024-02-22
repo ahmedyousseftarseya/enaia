@@ -57,13 +57,13 @@
                      <!-- item-->
                      <a href="{{ route('admin.lang', 'ar') }}" class="dropdown-item notify-item language" data-lang="ar">
                         <img src="{{ asset('build/images/flags/arabic.png') }}" alt="user-image" class="{{ isRtl() ? 'ms-1' : 'me-1' }}"
-                            height="12"> <span class="align-middle">Arabic</span>
+                            height="12"> <span class="align-middle">{{ __('lang.arabic') }}</span>
                     </a>
 
                     <!-- item-->
                     <a href="{{ route('admin.lang', 'en') }}" class="dropdown-item notify-item language" data-lang="en">
                         <img src="{{ asset('build/images/flags/us.jpg') }}" alt="user-image" class="{{ isRtl() ? 'ms-1' : 'me-1' }}"
-                            height="12"> <span class="align-middle">English</span>
+                            height="12"> <span class="align-middle">{{ __('lang.english') }}</span>
                     </a>
                 </div>
             </div>
@@ -83,22 +83,22 @@
                         <p class="mb-0 font-size-11 text-muted">{{auth('admin')->user()->email }}</p>
                     </div>
 
-                    <a class="dropdown-item" href="contacts-profile">
+                    <a class="dropdown-item" href="{{ route('admin.profile') }}">
                         <i class="mdi mdi-account-circle text-muted font-size-16 align-middle {{ isRtl() ? 'ms-2' : 'me-2' }}"></i> 
-                        <span class="align-middle">Profile</span>
+                        <span class="align-middle">{{ __('lang.profile') }}</span>
                     </a>
                     
-                    <a class="dropdown-item d-flex align-items-center" href="#">
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.settings.globalSettings') }}">
                         <i class="mdi mdi-cog-outline text-muted font-size-16 align-middle {{ isRtl() ? 'ms-2' : 'me-2' }}"></i> 
-                        <span class="align-middle {{ isRtl() ? 'ms-3' : 'me-3' }}">Settings</span>
-                        {{-- <span class="badge bg-success-subtle text-success ms-auto">New</span> --}}
+                        <span class="align-middle {{ isRtl() ? 'ms-3' : 'me-3' }}">{{ __('lang.settings') }}</span>
+                        <span class="badge bg-success-subtle text-success ms-auto">New</span>
                     </a>
                     
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="javascript:void();"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                             class="mdi mdi-logout text-muted font-size-16 align-middle {{ isRtl() ? 'ms-2' : 'me-2' }}"></i> <span
-                            class="align-middle">Logout</span></a>
+                            class="align-middle">{{ __('lang.logout') }}</span></a>
                     <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>

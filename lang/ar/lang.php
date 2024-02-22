@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'edit_profile' => 'تعديل الملف الشخصي',
+    'profile' => 'الملف الشخصي',
+    'english' => 'الانجليزية',
+    'arabic' => 'العربية',
     'settings' => 'الاعدادات',
     'global_settings' => 'الاعدادات العامة',
     'contact_settings' => 'اعدادات التواصل',
@@ -100,6 +104,7 @@ return [
     'password' => 'كلمة المرور',
 
     'login' => 'تسجيل الدخول',
+    'logout' => 'تسجيل الخروج',
     'username' => 'اسم المستخدم',
     'dashboard' => 'لوحة التحكم',
 
