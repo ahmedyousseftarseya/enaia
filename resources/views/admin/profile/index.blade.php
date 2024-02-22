@@ -26,7 +26,6 @@
                                                 <i class="bx bx-dots-vertical text-white font-size-20"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="{{ route('admin.admins.edit', $admin->id) }}">{{ __('lang.edit') }}</a>
                                                 <form action="{{ route('admin.admins.destroy', $admin->id) }}" method="post" class="dropdown-item">
                                                     @csrf
                                                     @method('delete')
@@ -48,14 +47,10 @@
 
                         {{-- doctor image --}}
                         <div class="mt-n5 position-relative text-center border-bottom pb-3">
-                            <img src="{{ $admin->image_url }}" alt=""
-                                class="avatar-xl rounded-circle img-thumbnail">
-
-
+                            <img src="{{ $admin->image_url }}" alt="" class="avatar-xl rounded-circle img-thumbnail">
                         </div>
 
                         {{-- info (email, phone, ..) --}}
-
                         <div class="table-responsive mt-3 pb-3">
                             <table class="table align-middle table-sm table-nowrap table-borderless table-centered mb-0">
                                 <tbody>

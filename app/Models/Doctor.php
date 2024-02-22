@@ -6,15 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Doctor extends Model implements TranslatableContract
 {
-    use Translatable;
+    use Translatable, LogsActivity;
 
     protected array $translatedAttributes = ['name', 'about', 'experience'];
     protected $fillable = ['image', 'phone', 'password', 'email', 'specialization_id'];
 
     protected $appends = ['image_url'];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logAll();
+    }
 
     public function getImageUrlAttribute()
     {

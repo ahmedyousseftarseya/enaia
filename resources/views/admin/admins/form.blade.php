@@ -55,7 +55,7 @@
                         {{ html()->select('role', $roles, old('role', $resource->getRole()->id ?? ''))
                             ->class('form-control select2')
                             ->attribute('required')
-                            ->placeholder(__('lang.select-item'))
+                            ->placeholder(__('lang.select_item'))
                         }}
 
                         @error('role')
