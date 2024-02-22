@@ -17,7 +17,7 @@ class Service extends Model implements TranslatableContract
 
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset($this->image) : asset('build/images/user.png');
+        return $this->image ? asset($this->image) : asset('build/images/service.png');
     }
 
     public function scopeFilter($q)

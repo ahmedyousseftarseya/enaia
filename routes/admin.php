@@ -49,7 +49,10 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('users', UserController::class);
     Route::post('users/change-status', [UserController::class, 'changeStatus'])->name('users.changeStatus');
 
-    Route::resource('settings', SettingController::class);
+    Route::get('global-settings', [SettingController::class, 'globalSettings'])->name('settings.globalSettings');
+    Route::get('conatct-settings', [SettingController::class, 'contactSettings'])->name('settings.contactSettings');
+    Route::post('global-settings', [SettingController::class, 'update'])->name('settings.update');
+
     Route::resource('services', ServiceController::class);
     Route::post('services/change-status', [ServiceController::class, 'changeStatus'])->name('services.changeStatus');
     Route::resource('admins', AdminController::class);

@@ -14,7 +14,7 @@
             {{ html()->label(__('lang.specialization')) }}
             {{ html()->select('specialization_id', $specializations, request('specialization_id'))
                 ->class('select2')
-                ->placeholder(__('lang.select-item')) 
+                ->placeholder(__('lang.select_item')) 
             }}
         </div>
 

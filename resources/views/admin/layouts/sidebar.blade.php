@@ -188,8 +188,11 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{ route('admin.settings.index') }}">{{ __('lang.settings_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
+                            <a href="{{ route('admin.settings.globalSettings') }}">{{ __('lang.global_settings') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.settings.contactSettings') }}">{{ __('lang.contact_settings') }}
                             </a>
                         </li>
                     </ul>

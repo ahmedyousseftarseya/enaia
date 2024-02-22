@@ -8,5 +8,5 @@ return [
     'services' => 'uploads/services/',
     'users' => 'uploads/users/',
     'countries' => 'uploads/countries/',
-    
+    'settings' => 'uploads/settings/',
 ];

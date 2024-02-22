@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreServiceRequest;
-use App\Models\Service;
 use App\Models\Setting;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class SettingController extends Controller
@@ -18,33 +17,46 @@ class SettingController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the global settings resource.
      */
-    public function index()
+    public function globalSettings()
     {
-        dd('hello');
-        $resources = $this->model->latest()->filter(request())->paginate(self::$pagination);
-        return view('admin.services.index', [
-            'resources' => $resources,
+        $settings = $this->model->get();
+        return view('admin.settings.global-settings', [
+            'settings' => $settings,
+        ]);
+    }
+
+    /**
+     * Display a listing of the contact settings resource.
+     */
+    public function contactSettings()
+    {
+        $settings = $this->model->get();
+        return view('admin.settings.contact-settings', [
+            'settings' => $settings,
         ]);
     }
 
     /**
      * Update the specified resource in storageheadN
      */
-    public function update(StoreServiceRequest $request, Service $service)
+    public function update(Request $request)
     {
-        $data = $request->validated();
-        if($request->hasFile('image')) {
-            File::delete($service->image);
-            $data['image'] = uploadFile($data['image'], config('upload_pathes.services'));
+        $data = $request->except('_token');
+        if($request->file('logo')) {
+            $setting = $this->model->where('key', 'logo')->first();
+            File::delete($setting->value ?? null);
+            $data['logo'] = uploadFile($request->file('logo'), config('upload_pathes.settings'));
         }
-        isset($data['active']) ? $data['active'] = 1 : $data['active'] = 0;
 
-        $service->update($data);
+        foreach ($data as $key => $value) {
+            $this->model->updateOrCreate(['key' => $key], ['value' => $value]);
+        }
         
         toast(__('lang.updated'), 'success');
-        return redirect()->route('admin.services.index');
+        return redirect()->back();
     }
 
 }
+

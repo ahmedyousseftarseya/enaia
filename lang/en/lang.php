@@ -1,6 +1,28 @@
 <?php
 
 return [
+    'settings' => 'Settings',
+    'global_settings' => 'Global Settings',
+    'contact_settings' => 'Contact Settings',
+    'phone_1' => 'Phone 1',
+    'phone_2' => 'Phone 2',
+    'email_1' => 'Email 1',
+    'email_2' => 'Email 2',
+    'facebook' => 'Facebook',
+    'twitter' => 'Twitter',
+    'linkedin' => 'LinkedIn',
+    'instagram' => 'Instagram',
+    'tiktok' => 'TikTok',
+    'youtube' => 'YouTube',
+
+    'site_name_ar' => 'Site Name in Arabic',
+    'site_name_en' => 'Site Name in English',
+    'short_description_ar' => 'Short Description in Arabic',
+    'short_description_en' => 'Short Description in English',
+    'website_address_ar' => 'Website Address in Arabic',
+    'website_address_en' => 'Website Address in English',
+    'policy_ar' => 'Policy in Arabic',
+    'policy_en' => 'Policy in English',
     'no_data' => 'No Data',
     'cities' => 'Cities',
     'city' => 'City',
