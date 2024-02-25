@@ -14,7 +14,7 @@
 
         <a href="index" class="logo logo-light">
             <span class="logo-lg">
-                <img src="{{ URL::asset('build/images/logo-light.png') }}" alt="" height="30">
+                <img src="{{ URL::asset('build/images/logo-light.png') }}" alt=""class="img-23">
             </span>
             <span class="logo-sm">
                 <img src="{{ URL::asset('build/images/logo-light-sm.png') }}" alt="" height="26">
@@ -32,19 +32,20 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" data-key="t-menu">Dashboard</li>
+                <li class="menu-title" data-key="t-menu">{{ __('lang.dashboard') }}</li>
 
-                <li>
-                    <a href="{{ route('admin.index') }}">
-                        <i class="bx bx-home-alt icon nav-icon"></i>
-                        <span class="menu-item">{{ __('lang.dashboard') }}</span>
-                    </a>
-                </li>
-
+                @if(auth('admin')->user()->isAbleTo('admin_read-dashboard'))
+                    <li>
+                        <a href="{{ route('admin.index') }}">
+                            <img src="{{ URL::asset('build/images/home-icon.png') }}" alt="" class="img-23">
+                            <span class="menu-item">{{ __('lang.dashboard') }}</span>
+                        </a>
+                    </li>
+                @endif
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa fa-user-md icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/doctor-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.doctors') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -60,7 +61,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/nurse-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.nurses') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -76,7 +77,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/head-nurse-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.head_nurses') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -93,7 +94,7 @@
                 @if(auth('admin')->user()->isAbleTo('admin_read-customers'))
                     <li>
                         <a href="javascript: void(0);" class="has-arrow">
-                            <i class="bx bx-user icon nav-icon"></i>
+                            <img src="{{ URL::asset('build/images/customer-icon.png') }}" alt=""class="img-23">
                             <span class="menu-item">{{ __('lang.customers') }}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
@@ -104,7 +105,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/service-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.services') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -120,7 +121,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/admin-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.admins') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -136,7 +137,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/roles-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.roles') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -152,7 +153,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/country-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.countries') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -165,11 +166,10 @@
                         @endif
                     </ul>
                 </li>
-
                  
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
+                        <img src="{{ URL::asset('build/images/city-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.cities') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -186,7 +186,7 @@
                 @if(auth('admin')->user()->isAbleTo('admin_read-settings'))
                     <li>
                         <a href="javascript: void(0);" class="has-arrow">
-                            <i class="bx bx-user icon nav-icon"></i>
+                            <img src="{{ URL::asset('build/images/settings-icon.png') }}" alt=""class="img-23">
                             <span class="menu-item">{{ __('lang.settings') }}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">

@@ -46,6 +46,12 @@
         width: 50px;
     }
 
+    .img-23 {
+        height: 23px;
+        width: 23px;
+        filter: invert(53%) sepia(11%) saturate(439%) hue-rotate(185deg) brightness(93%) contrast(83%);
+    }
+
     /* customize select2 */
     .select2,
     .selection {
