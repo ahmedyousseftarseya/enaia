@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ar',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ar',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,6 +185,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Spatie\Html\HtmlServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -209,6 +211,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
