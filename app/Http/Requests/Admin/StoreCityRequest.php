@@ -15,8 +15,9 @@ class StoreCityRequest extends FormRequest
     {
         $id = $this->city?->id;
         return [
-            'ar.*' => ['required', Rule::unique('city_translations', 'name')->ignore($id)],
-            'en.*' => ['required', Rule::unique('city_translations', 'name')->ignore($id)],
+            'ar.*' => ['required', Rule::unique('city_translations', 'name')->ignore($id, 'city_id')],
+            'en.*' => ['required', Rule::unique('city_translations', 'name')->ignore($id, 'city_id')],
+            'shipping_cost' => ['required', 'numeric', 'min:0'],
             'country_id' => ['required'],
         ];
     }

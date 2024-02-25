@@ -48,6 +48,7 @@
                     <th>#</th>
                     <th>{{ __('lang.name') }}</th>
                     <th>{{ __('lang.country') }}</th>
+                    <th>{{ __('lang.shipping_cost') }}</th>
                     <th>{{ __('lang.action') }}</th>
                 @endslot
 
@@ -66,6 +67,7 @@
                                     {{ $resource->name }}
                                 </td>
                                 <td>{{ $resource->country?->name }}</td>
+                                <td>{{ $resource->shipping_cost }}</td>
                                 <td>
                                     @if(auth('admin')->user()->isAbleTo('admin_update-cities'))
                                         <a href="{{ route('admin.cities.edit', $resource->id) }}" class="btn btn-xs btn-primary">

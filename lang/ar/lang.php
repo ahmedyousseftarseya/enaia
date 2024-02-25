@@ -32,6 +32,7 @@ return [
     'no_data' => 'لا يوجد بيانات',
     'cities' => 'المدن',
     'city' => 'مدينة',
+    'shipping_cost' => 'تكلفة الشحن',
     'cities_list' => 'قائمة المدن',
     'countries' =>  'الدول',
     'country' => 'دولة',

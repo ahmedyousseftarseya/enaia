@@ -32,6 +32,7 @@ return [
     'no_data' => 'No Data',
     'cities' => 'Cities',
     'city' => 'City',
+    'shipping_cost' => 'Shipping Cost',
     'cities_list' => 'Cities List',
     'countries' =>  'Countries',
     'country' => 'Country',

@@ -105,8 +105,8 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('create', 'create')->name('create')->middleware('permission:admin_create-services');
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-services');
         Route::get('edit/{service}', 'edit')->name('edit')->middleware('permission:admin_update-services');
-        Route::post('update/{service}', 'update')->name('update')->middleware('permission:admin_update-services');
-        Route::put('destroy/{service}', 'update')->name('destroy')->middleware('permission:admin_delete-services');
+        Route::put('update/{service}', 'update')->name('update')->middleware('permission:admin_update-services');
+        Route::post('destroy/{service}', 'update')->name('destroy')->middleware('permission:admin_delete-services');
         Route::post('change-status', 'changeStatus')->name('changeStatus')->middleware('permission:admin_update-status-services');
     });
 
