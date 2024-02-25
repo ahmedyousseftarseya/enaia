@@ -93,12 +93,13 @@
 
                 </div>
 
-                
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">{{ __('lang.save') }}</button>
+                @if(auth('admin')->user()->isAbleTo('admin_update-settings'))
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">{{ __('lang.save') }}</button>
+                        </div>
                     </div>
-                </div>
+                @endif
             </form>
 
         @endslot

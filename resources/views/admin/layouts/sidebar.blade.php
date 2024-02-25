@@ -48,8 +48,13 @@
                         <span class="menu-item">{{ __('lang.doctors') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.doctors.index') }}">{{ __('lang.doctors_list') }}</a></li>
-                        <li><a href="{{ route('admin.doctors.create') }}">{{ __('lang.add') . ' ' . __('lang.doctor') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-doctors'))
+                            <li><a href="{{ route('admin.doctors.index') }}">{{ __('lang.doctors_list') }}</a></li>
+                        @endif
+
+                        @if(auth('admin')->user()->isAbleTo('admin_create-doctors'))
+                            <li><a href="{{ route('admin.doctors.create') }}">{{ __('lang.add') . ' ' . __('lang.doctor') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -59,13 +64,13 @@
                         <span class="menu-item">{{ __('lang.nurses') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.nurses.index') }}">{{ __('lang.nurses_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-nurses'))
+                            <li><a href="{{ route('admin.nurses.index') }}">{{ __('lang.nurses_list') }}</a></li>
+                        @endif
                         
-                        <li><a href="{{ route('admin.nurses.create') }}">{{ __('lang.add') . ' ' . __('lang.nurse') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_create-nurses'))
+                            <li><a href="{{ route('admin.nurses.create') }}">{{ __('lang.add') . ' ' . __('lang.nurse') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -75,30 +80,27 @@
                         <span class="menu-item">{{ __('lang.head_nurses') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.head-nurses.index') }}">{{ __('lang.head_nurses_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-head-nurses'))
+                            <li> <a href="{{ route('admin.head-nurses.index') }}">{{ __('lang.head_nurses_list') }}</a></li>
+                        @endif
                         
-                        <li><a href="{{ route('admin.head-nurses.create') }}">{{ __('lang.add') . ' ' . __('lang.head_nurse') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_create-head-nurses'))
+                            <li><a href="{{ route('admin.head-nurses.create') }}">{{ __('lang.add') . ' ' . __('lang.head_nurse') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
-                        <span class="menu-item">{{ __('lang.customers') }}</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.users.index') }}">{{ __('lang.customers_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </li>
+                @if(auth('admin')->user()->isAbleTo('admin_read-customers'))
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow">
+                            <i class="bx bx-user icon nav-icon"></i>
+                            <span class="menu-item">{{ __('lang.customers') }}</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.users.index') }}">{{ __('lang.customers_list') }}</a>\</li>
+                        </ul>
+                    </li>
+                @endif
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
@@ -106,13 +108,13 @@
                         <span class="menu-item">{{ __('lang.services') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.services.index') }}">{{ __('lang.services_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
-                        
-                        <li><a href="{{ route('admin.services.create') }}">{{ __('lang.add') . ' ' . __('lang.service') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-services'))
+                            <li> <a href="{{ route('admin.services.index') }}">{{ __('lang.services_list') }}</a> </li>
+                        @endif
+
+                        @if(auth('admin')->user()->isAbleTo('admin_create-services'))
+                            <li><a href="{{ route('admin.services.create') }}">{{ __('lang.add') . ' ' . __('lang.service') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -122,13 +124,13 @@
                         <span class="menu-item">{{ __('lang.admins') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.admins.index') }}">{{ __('lang.admins_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-admins'))
+                            <li> <a href="{{ route('admin.admins.index') }}">{{ __('lang.admins_list') }}</a> </li>
+                        @endif
                         
-                        <li><a href="{{ route('admin.admins.create') }}">{{ __('lang.add') . ' ' . __('lang.admin') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_create-admins'))
+                            <li><a href="{{ route('admin.admins.create') }}">{{ __('lang.add') . ' ' . __('lang.admin') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -138,13 +140,13 @@
                         <span class="menu-item">{{ __('lang.roles') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.roles.index') }}">{{ __('lang.roles_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-roles'))
+                            <li><a href="{{ route('admin.roles.index') }}">{{ __('lang.roles_list') }} </a> </li>
+                        @endif
                         
-                        <li><a href="{{ route('admin.roles.create') }}">{{ __('lang.add') . ' ' . __('lang.role') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_create-roles'))
+                            <li><a href="{{ route('admin.roles.create') }}">{{ __('lang.add') . ' ' . __('lang.role') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -154,13 +156,13 @@
                         <span class="menu-item">{{ __('lang.countries') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.countries.index') }}">{{ __('lang.countries_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-countries'))
+                            <li><a href="{{ route('admin.countries.index') }}">{{ __('lang.countries_list') }}</a></li>
+                        @endif
                         
-                        <li><a href="{{ route('admin.countries.create') }}">{{ __('lang.add') . ' ' . __('lang.country') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_create-countries'))
+                            <li><a href="{{ route('admin.countries.create') }}">{{ __('lang.add') . ' ' . __('lang.country') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -171,61 +173,35 @@
                         <span class="menu-item">{{ __('lang.cities') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.cities.index') }}">{{ __('lang.cities_list') }}
-                                {{-- <span class="badge rounded-pill bg-primary">2</span> --}}
-                            </a>
-                        </li>
+                        @if(auth('admin')->user()->isAbleTo('admin_read-cities'))
+                            <li><a href="{{ route('admin.cities.index') }}">{{ __('lang.cities_list') }}</a></li>
+                        @endif
                         
-                        <li><a href="{{ route('admin.cities.create') }}">{{ __('lang.add') . ' ' . __('lang.city') }}</a></li>
+                        @if(auth('admin')->user()->isAbleTo('admin_create-cities'))
+                            <li><a href="{{ route('admin.cities.create') }}">{{ __('lang.add') . ' ' . __('lang.city') }}</a></li>
+                        @endif
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-user icon nav-icon"></i>
-                        <span class="menu-item">{{ __('lang.settings') }}</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="{{ route('admin.settings.globalSettings') }}">{{ __('lang.global_settings') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.settings.contactSettings') }}">{{ __('lang.contact_settings') }}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                
-                {{-- <li class="menu-title" data-key="t-applications">Applications</li> --}}
-                {{-- <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa fa-user-md icon nav-icon"></i>
-                        <span class="menu-item" data-key="t-email">Doctors</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox" data-key="t-inbox">Doctors List</a></li>
-                        <li><a href="email-read" data-key="t-read-email">Add Doctor</a></li>
-                    </ul>
-                </li> --}}
-
-                {{-- <li>
-                    <a href="apps-calendar">
-                        <i class="bx bx-calendar-event icon nav-icon"></i>
-                        <span class="menu-item" data-key="t-calendar">Calendar</span>
-                    </a>
-                </li> --}}
-
-
-                {{-- <li>
-                    <a href="apps-chat">
-                        <i class="bx bx-chat icon nav-icon"></i>
-                        <span class="menu-item" data-key="t-chat">Chat</span>
-                        <span class="badge rounded-pill bg-danger" data-key="t-hot">Hot</span>
-                    </a>
-                </li> --}}
+                @if(auth('admin')->user()->isAbleTo('admin_read-settings'))
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow">
+                            <i class="bx bx-user icon nav-icon"></i>
+                            <span class="menu-item">{{ __('lang.settings') }}</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li>
+                                <a href="{{ route('admin.settings.globalSettings') }}">{{ __('lang.global_settings') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.settings.contactSettings') }}">{{ __('lang.contact_settings') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+              
             </ul>
         </div>
         <!-- Sidebar -->
