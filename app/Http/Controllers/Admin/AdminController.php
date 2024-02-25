@@ -33,7 +33,7 @@ class AdminController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
         $roles = Role::where('slug', '=', 'admin')->pluck('name', 'id')->toArray();
         return view('admin.admins.form', [
             'resource' => $this->model,
@@ -64,6 +64,11 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
+        $roles = Role::where('slug', '=', 'admin')->pluck('name', 'id')->toArray();
+        return view('admin.profile.show', [
+            'admin' => $admin,
+            'roles' => $roles
+        ]);
     }
 
     /**HeadNurse

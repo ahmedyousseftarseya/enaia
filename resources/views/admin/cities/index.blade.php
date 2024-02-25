@@ -35,7 +35,9 @@
     @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
-            <a href="{{ route('admin.cities.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.city') }}</a>
+            @if(auth('admin')->user()->isAbleTo('admin_create-cities'))
+                <a href="{{ route('admin.cities.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.city') }}</a>
+            @endif
         @endslot
 
         @slot('content')
@@ -65,19 +67,22 @@
                                 </td>
                                 <td>{{ $resource->country?->name }}</td>
                                 <td>
-                                    <a href="{{ route('admin.cities.edit', $resource->id) }}" class="btn btn-xs btn-primary">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
+                                    @if(auth('admin')->user()->isAbleTo('admin_update-cities'))
+                                        <a href="{{ route('admin.cities.edit', $resource->id) }}" class="btn btn-xs btn-primary">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+                                    @endif
 
-                                    <form action="{{ route('admin.cities.destroy', $resource->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-xs btn-danger sw-alert"
-                                            onclick="return confirm('{{ __('lang.are_you_sure') }}')">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </form>
-
+                                    @if(auth('admin')->user()->isAbleTo('admin_delete-cities'))
+                                        <form action="{{ route('admin.cities.destroy', $resource->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-xs btn-danger sw-alert"
+                                                onclick="return confirm('{{ __('lang.are_you_sure') }}')">
+                                                <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -35,7 +35,9 @@
     @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
-            <a href="{{ route('admin.nurses.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.nurse') }}</a>
+            @if(auth('admin')->user()->isAbleTo('admin_create-nurses'))
+                <a href="{{ route('admin.nurses.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.nurse') }}</a>
+            @endif
         @endslot
 
         @slot('content')
@@ -69,23 +71,22 @@
                                 <td>{{ $nurse->phone }}</td>
                                 <td>{{ $nurse->address ?? '-' }}</td>
                                 <td>
-                                    <a href="{{ route('admin.nurses.edit', $nurse->id) }}" class="btn btn-xs btn-primary">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
+                                    @if(auth('admin')->user()->isAbleTo('admin_update-nurses'))
+                                        <a href="{{ route('admin.nurses.edit', $nurse->id) }}" class="btn btn-xs btn-primary">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+                                    @endif
 
-                                    <form action="{{ route('admin.nurses.destroy', $nurse->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-xs btn-danger sw-alert"
-                                            onclick="return confirm('{{ __('lang.are_you_sure') }}')">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </form>
-
-                                    {{-- <a href="{{ route('admin.nurses.destroy', $nurse->id) }}"
-                                        class="btn btn-xs btn-danger" data-confirm-delete="true">
-                                        <span class="fa fa-trash"></span>
-                                    </a> --}}
+                                    @if(auth('admin')->user()->isAbleTo('admin_delete-nurses'))
+                                        <form action="{{ route('admin.nurses.destroy', $nurse->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-xs btn-danger sw-alert"
+                                                onclick="return confirm('{{ __('lang.are_you_sure') }}')">
+                                                <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    @endif
 
                                 </td>
                             </tr>

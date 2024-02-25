@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreCityRequest;
-use App\Http\Requests\Admin\StoreCountryRequest;
 use App\Models\City;
 use App\Models\Country;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 
 class CityController extends Controller
 {

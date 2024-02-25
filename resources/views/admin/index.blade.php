@@ -11,6 +11,7 @@
 
 @section('content')
     {{-- <h1>{{ __('lang.dashboard') }}</h1> --}}
+    
     {{-- <div class="row">
             <div class="col-xl-6">
                 <div class="card">

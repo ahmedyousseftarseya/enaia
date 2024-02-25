@@ -11,7 +11,6 @@ class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
@@ -24,7 +23,7 @@ class AdminSeeder extends Seeder
 
         // sync all permissions
         $permissions = DB::table('permissions')->where('slug', 'admin')->pluck('id')->toArray();
-        $role->permissions()->attach($permissions);
+        $role->permissions()->sync($permissions);
 
         // attach admin role
         $admin->syncRoles([$role->id]);
@@ -33,11 +32,15 @@ class AdminSeeder extends Seeder
     }
 
 
+    /**
+     * Create an admin user with the given data.
+     * @return Admin The newly created admin user
+     */
     public function createAdmin()
     {
         $data = [
-            'username' => 'test',
-            'email' => 'test@test.com',
+            'username' => 'admin',
+            'email' => 'admin@admin.com',
             'password' => bcrypt(123456),
             'phone' => '01159472369',
         ];
@@ -52,13 +55,24 @@ class AdminSeeder extends Seeder
         return $admin;
     }
 
+    /**
+     * Creates a role with the given data if it does not already exist and returns the role.
+     * @return Role
+     */
     public function createRole()
     {
-        return Role::create([
+        $data = [
             'name'          =>  'admin',
             'display_name'  => 'Admin',
             'description'   => 'Admin Role For All Permissions In admin dashboard',
             'slug'          => 'admin',
-        ]);
+        ];
+
+        $role = Role::where('slug', $data['slug'])->first();
+        if (!$role) {
+            $role = Role::create($data);
+        }
+
+        return $role;
     }
 }

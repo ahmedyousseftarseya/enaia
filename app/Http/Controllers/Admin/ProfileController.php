@@ -11,7 +11,7 @@ class ProfileController extends Controller
     {
         $admin = auth('admin')->user();
         $roles = Role::where('slug', '=', 'admin')->pluck('name', 'id')->toArray();
-        return view('admin.profile.index', [
+        return view('admin.profile.show', [
             'admin' => $admin,
             'roles' => $roles
         ]);

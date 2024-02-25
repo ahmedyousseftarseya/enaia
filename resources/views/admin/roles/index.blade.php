@@ -35,7 +35,9 @@
     @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
-            <a href="{{ route('admin.roles.create') }}" class="btn btn-primary">{{ __('lang.add') . ' ' . __('lang.role') }}</a>
+            @if(auth('admin')->user()->isAbleTo('admin_create-roles'))
+                <a href="{{ route('admin.roles.create') }}" class="btn btn-primary">{{ __('lang.add') . ' ' . __('lang.role') }}</a>
+            @endif
         @endslot
 
         @slot('content')
@@ -66,18 +68,22 @@
                                 <td>{{ $resource->description }}</td>
                                
                                 <td>
-                                    <a href="{{ route('admin.roles.edit', $resource->id) }}" class="btn btn-xs btn-primary">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
+                                    @if(auth('admin')->user()->isAbleTo('admin_update-roles'))
+                                        <a href="{{ route('admin.roles.edit', $resource->id) }}" class="btn btn-xs btn-primary">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+                                    @endif
 
-                                    <form action="{{ route('admin.roles.destroy', $resource->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-xs btn-danger sw-alert"
-                                            onclick="return confirm('{{ __('lang.are_you_sure') }}')">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </form>
+                                    @if(auth('admin')->user()->isAbleTo('admin_delete-roles'))
+                                        <form action="{{ route('admin.roles.destroy', $resource->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-xs btn-danger sw-alert"
+                                                onclick="return confirm('{{ __('lang.are_you_sure') }}')">
+                                                <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    @endif
 
                                 </td>
                             </tr>

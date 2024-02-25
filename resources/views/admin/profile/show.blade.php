@@ -61,7 +61,7 @@
 
                                     <tr>
                                         <th class="fw-bold">{{ __('lang.role') }} :</th>
-                                        <td class="text-muted">{{ $admin->getRole()->name }}</td>
+                                        <td class="text-muted">{{ $admin->getRole()->name ?? '-' }}</td>
                                     </tr>
                                   
                                     <tr>

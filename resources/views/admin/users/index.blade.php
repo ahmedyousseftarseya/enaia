@@ -49,14 +49,16 @@
                     <th>{{ __('lang.nationality') }}</th>
                     <th>{{ __('lang.blood_group') }}</th>
                     <th>{{ __('lang.address') }}</th>
-                    <th>{{ __('lang.status') }}</th>
+                    @if(auth('admin')->user()->isAbleTo('admin_update-status-customers'))
+                        <th>{{ __('lang.status') }}</th>
+                    @endif
                     <th>{{ __('lang.action') }}</th>
                 @endslot
 
                 @slot('data')
                     @if ($resources->count() == 0)
                         <tr>
-                            <td colspan="8" class="text-center py-3 text-muted">
+                            <td colspan="11" class="text-center py-3 text-muted">
                                 {{ __('lang.no_data') }}
                             </td>
                         </tr>
@@ -77,6 +79,7 @@
                                 <td>{{ $resource->nationality }}</td>
                                 <td>{{ $resource->blood_group }}</td>
                                 <td>{{ $resource->address }}</td>
+                                @if(auth('admin')->user()->isAbleTo('admin_update-status-customers'))
                                 <td>
                                     <select name="status" id="status_{{ $resource->id }}" 
                                         data-old-status="{{ $resource->status }}"
@@ -87,19 +90,30 @@
                                         @endforeach
                                     </select>
                                 </td>
+                                @endif
                                 <td>
-                                    <a href="{{ route('admin.users.edit', $resource->id) }}" class="btn btn-xs btn-primary">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
+                                    @if(auth('admin')->user()->isAbleTo('admin_show-customers'))
+                                        <a href="{{ route('admin.users.show', $resource->id) }}" class="btn btn-xs btn-info">
+                                            <span class="fa fa-eye"></span>
+                                        </a>
+                                    @endif
 
-                                    <form action="{{ route('admin.users.destroy', $resource->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-xs btn-danger sw-alert"
-                                            onclick="return confirm('{{ __('lang.are_you_sure') }}')">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </form>
+                                    @if(auth('admin')->user()->isAbleTo('admin_update-customers'))
+                                        <a href="{{ route('admin.users.edit', $resource->id) }}" class="btn btn-xs btn-primary">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+                                    @endif
+
+                                    @if(auth('admin')->user()->isAbleTo('admin_delete-customers'))
+                                        <form action="{{ route('admin.users.destroy', $resource->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-xs btn-danger sw-alert"
+                                                onclick="return confirm('{{ __('lang.are_you_sure') }}')">
+                                                <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    @endif
 
                                 </td>
                             </tr>

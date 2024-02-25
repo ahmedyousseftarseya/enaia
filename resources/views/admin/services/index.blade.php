@@ -35,7 +35,9 @@
     @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
-            <a href="{{ route('admin.services.create') }}" class="btn btn-primary">{{ __('lang.add') . ' ' . __('lang.service') }}</a>
+            @if(auth('admin')->user()->isAbleTo('admin_create-services'))
+                <a href="{{ route('admin.services.create') }}" class="btn btn-primary">{{ __('lang.add') . ' ' . __('lang.service') }}</a>
+            @endif
         @endslot
 
         @slot('content')
@@ -46,7 +48,9 @@
                     <th>#</th>
                     <th>{{ __('lang.title') }}</th>
                     <th>{{ __('lang.description') }}</th>
-                    <th>{{ __('lang.active') }}</th>
+                    @if(auth('admin')->user()->isAbleTo('admin_update-status-services'))
+                        <th>{{ __('lang.active') }}</th>
+                    @endif
                     <th>{{ __('lang.action') }}</th>
                 @endslot
 
@@ -67,26 +71,32 @@
                                     {{ $resource->title }}
                                 </td>
                                 <td>{{ $resource->description }}</td>
+                                @if(auth('admin')->user()->isAbleTo('admin_update-status-services'))
+                                    <td>
+                                        <div class="form-check form-switch mt-4 d-flex align-items-center border-dark">
+                                            <input class="form-check-input" onchange="changeStatus({{ $resource->id }})" type="checkbox"
+                                                role="switch" id="switchCheck-{{ $resource->id }}" name="active"
+                                                {{ $resource->active || !$resource->id ? 'checked' : '' }}>
+                                        </div>
+                                    </td>
+                                @endif
                                 <td>
-                                    <div class="form-check form-switch mt-4 d-flex align-items-center border-dark">
-                                        <input class="form-check-input" onchange="changeStatus({{ $resource->id }})" type="checkbox"
-                                            role="switch" id="switchCheck-{{ $resource->id }}" name="active"
-                                            {{ $resource->active || !$resource->id ? 'checked' : '' }}>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.services.edit', $resource->id) }}" class="btn btn-xs btn-primary">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
+                                    @if(auth('admin')->user()->isAbleTo('admin_update-services'))
+                                        <a href="{{ route('admin.services.edit', $resource->id) }}" class="btn btn-xs btn-primary">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+                                    @endif
 
-                                    <form action="{{ route('admin.services.destroy', $resource->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-xs btn-danger sw-alert"
-                                            onclick="return confirm('{{ __('lang.are_you_sure') }}')">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </form>
+                                    @if(auth('admin')->user()->isAbleTo('admin_delete-services'))
+                                        <form action="{{ route('admin.services.destroy', $resource->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-xs btn-danger sw-alert"
+                                                onclick="return confirm('{{ __('lang.are_you_sure') }}')">
+                                                <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    @endif
 
                                 </td>
                             </tr>

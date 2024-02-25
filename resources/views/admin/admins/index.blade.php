@@ -35,7 +35,9 @@
     @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
-            <a href="{{ route('admin.admins.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.admin') }}</a>
+            @if(auth('admin')->user()->isAbleTo('admin_create-admins'))
+                <a href="{{ route('admin.admins.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.admin') }}</a>
+            @endif
         @endslot
 
         @slot('content')
@@ -71,18 +73,28 @@
                                 <td>{{ $resource->getRole()->name ?? '' }}</td>
                                 <td>{{ $resource->phone }}</td>
                                 <td>
-                                    <a href="{{ route('admin.admins.edit', $resource->id) }}" class="btn btn-xs btn-primary">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
+                                    @if(auth('admin')->user()->isAbleTo('admin_show-admins'))
+                                        <a href="{{ route('admin.admins.show', $resource->id) }}" class="btn btn-xs btn-info">
+                                            <span class="fa fa-eye"></span>
+                                        </a>
+                                    @endif
 
-                                    <form action="{{ route('admin.admins.destroy', $resource->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-xs btn-danger sw-alert"
-                                            onclick="return confirm('{{ __('lang.are_you_sure') }}')">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </form>
+                                    @if(auth('admin')->user()->isAbleTo('admin_update-admins'))
+                                        <a href="{{ route('admin.admins.edit', $resource->id) }}" class="btn btn-xs btn-primary">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+                                    @endif
+
+                                    @if(auth('admin')->user()->isAbleTo('admin_delete-admins'))
+                                        <form action="{{ route('admin.admins.destroy', $resource->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-xs btn-danger sw-alert"
+                                                onclick="return confirm('{{ __('lang.are_you_sure') }}')">
+                                                <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    @endif
 
                                 </td>
                             </tr>

@@ -35,7 +35,9 @@
     @component('admin.layouts.components.card', ['title' => ''])
 
         @slot('action')
-            <a href="{{ route('admin.doctors.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.doctor') }}</a>
+            @if(auth('admin')->user()->isAbleTo('admin_create-doctors'))
+                <a href="{{ route('admin.doctors.create') }}" class="btn btn-primary">{{ __('lang.add'). ' ' . __('lang.doctor') }}</a>
+            @endif
         @endslot
 
         @slot('content')
@@ -71,21 +73,28 @@
                                 <td>{{ $doctor->email }}</td>
                                 <td>{{ $doctor->phone }}</td>
                                 <td>
-                                    <a href="{{ route('admin.doctors.show', $doctor->id) }}" class="btn btn-xs btn-info">
-                                        <span class="fa fa-eye"></span>
-                                    </a>
-                                    <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-xs btn-primary">
-                                        <span class="fa fa-edit"></span>
-                                    </a>
+                                    @if(auth('admin')->user()->isAbleTo('admin_show-doctors'))
+                                        <a href="{{ route('admin.doctors.show', $doctor->id) }}" class="btn btn-xs btn-info">
+                                            <span class="fa fa-eye"></span>
+                                        </a>
+                                    @endif
 
-                                    <form action="{{ route('admin.doctors.destroy', $doctor->id) }}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-xs btn-danger sw-alert"
-                                            onclick="return confirm('{{ __('lang.are_you_sure') }}')">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </form>
+                                    @if(auth('admin')->user()->isAbleTo('admin_update-doctors'))
+                                        <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-xs btn-primary">
+                                            <span class="fa fa-edit"></span>
+                                        </a>
+                                    @endif
+
+                                    @if(auth('admin')->user()->isAbleTo('admin_delete-doctors'))
+                                        <form action="{{ route('admin.doctors.destroy', $doctor->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-xs btn-danger sw-alert"
+                                                onclick="return confirm('{{ __('lang.are_you_sure') }}')">
+                                                <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    @endif
 
                                 </td>
                             </tr>

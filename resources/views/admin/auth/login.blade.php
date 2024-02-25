@@ -27,7 +27,7 @@
                     <div class="col-md-8 col-lg-6 col-xl-5">
 
                         <div class="mb-4 pb-2">
-                            <a href="index" class="d-block auth-logo">
+                            <a href="javascript:void(0)" class="d-block auth-logo">
                                 <img src="{{ URL::asset('build/images/logo-dark.png') }}" alt="" height="30"
                                     class="auth-logo-dark me-start">
                                 <img src="{{ URL::asset('build/images/logo-light.png') }}" alt="" height="30"
@@ -42,17 +42,17 @@
                                     <p class="text-muted">{{ __('lang.sign_in_to_continue_to_admin_panel') }}</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form method="POST" action="{{ route('admin.login') }}" class="auth-input">
+                                    <form method="POST" action="{{ route('admin.login') }}" class="auth-input {{ isRtl() ? 'text-end' : '' }}">
                                         @csrf
                                         <div class="mb-2">
-                                            <label for="username" class="form-label">{{ __('lang.username') }} <span
-                                                    class="text-danger">*</span></label>
-                                            <input id="username" type="username"
-                                                class="form-control @error('username') is-invalid @enderror" name="username"
-                                                value="{{ old('username') }}" required autocomplete="username" autofocus
-                                                value="admin@themesbrand.com">
+                                            <label for="username" class="form-label">{{ __('lang.username') }}</label>
+                                            <input id="username" type="username" name="username"
+                                                class="form-control {{ isRtl() ? 'text-end' : '' }} "
+                                                {{-- @error('username') is-invalid @enderror"  --}}
+                                                value="{{ old('username', 'admin') }}" required autocomplete="username" autofocus
+                                            />
                                             @error('username')
-                                                <span class="invalid-feedback" role="alert">
+                                                <span class="text-danger" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
@@ -60,37 +60,37 @@
 
                                         <div class="mb-3">
 
-                                            <label class="form-label" for="password-input">{{ __('lang.password') }} <span
-                                                    class="text-danger">*</span></label>
+                                            <label class="form-label" for="password-input">{{ __('lang.password') }}</label>
                                             <div class="position-relative auth-pass-inputgroup input-custom-icon">
                                                 {{-- <span class="bx bx-lock-alt"></span> --}}
-                                                <input type="password"
-                                                    class="form-control @error('password') is-invalid @enderror"
-                                                    placeholder="Enter password" id="password-input" name="password"
-                                                    required autocomplete="current-password" value="123456">
+                                                <input type="password" id="password-input" name="password"
+                                                    class="form-control {{ isRtl() ? 'text-end' : '' }}"
+                                                    {{-- @error('password') is-invalid @enderror" --}}
+                                                    placeholder="Enter password" 
+                                                    required autocomplete="current-password" value="123456"
+                                                />
                                                 <button type="button"
-                                                    class="btn btn-link position-absolute h-100 end-0 top-0"
+                                                    class="btn btn-link position-absolute h-100 {{ isRtl() ? 'start-0' : 'end-0' }} top-0"
                                                     id="password-addon">
                                                     <i class="mdi mdi-eye-outline font-size-18 text-muted"></i>
                                                 </button>
                                             </div>
                                             @error('password')
-                                                <span class="invalid-feedback" role="alert">
+                                                <span class="text-danger" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
 
-                                        <div class="form-check">
+                                        {{-- <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                                 {{ old('remember') ? 'checked' : '' }}>
                                             <label class="form-check-label" for="remember">Remember
                                                 me</label>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="mt-4">
-                                            <button class="btn btn-primary w-100" type="submit">Sign
-                                                In</button>
+                                            <button class="btn btn-primary w-100" type="submit">{{ __('lang.login') }}</button>
                                         </div>
 
                                     </form>

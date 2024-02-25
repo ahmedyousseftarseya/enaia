@@ -36,8 +36,11 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $admin)
+    public function show(User $user)
     {
+        return view('admin.users.show', [
+            'user' => $user,
+        ]);
     }
 
     /**HeadNurse

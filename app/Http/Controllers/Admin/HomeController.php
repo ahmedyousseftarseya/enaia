@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,11 +13,11 @@ class HomeController extends Controller
         return view('admin.index');
     }
 
-    public function notFound() {
-        if(view()->exists(request()->path())) {
+    public function notFound()
+    {
+        if (view()->exists(request()->path())) {
             return view(request()->path());
         }
         return view('admin.errors.404');
     }
- 
 }

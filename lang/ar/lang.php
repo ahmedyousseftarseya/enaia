@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'sign_in_to_continue_to_admin_panel' => 'سجل الدخول للمتابعة في لوحة التحكم',
+    'welcome_back' => '! مرحبا بعودتك',
     'edit_profile' => 'تعديل الملف الشخصي',
     'profile' => 'الملف الشخصي',
     'english' => 'الانجليزية',
@@ -109,6 +111,7 @@ return [
     'dashboard' => 'لوحة التحكم',
 
     'add' => 'اضافة',
+    'show' => 'عرض',
     'edit' => 'تعديل',
     'created' => 'تم حفظ العنصر',
     'deleted' => 'تم حذف العنصر',
