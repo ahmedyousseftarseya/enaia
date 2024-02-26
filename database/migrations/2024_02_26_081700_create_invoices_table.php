@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('payment_status');
             $table->float('tax');
             $table->float('total');
-            $table->boolean('is_return');
+            $table->boolean('is_return')->default(0);
             $table->foreignId('reservation_id')->constrained('reservations');
             $table->timestamps();
         });

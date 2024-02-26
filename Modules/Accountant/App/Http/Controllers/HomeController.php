@@ -3,11 +3,9 @@
 namespace Modules\Accountant\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
-class AccountantController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.

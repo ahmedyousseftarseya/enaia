@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'invoices' => 'Invoices',
+    'ref_no' => 'Ref No',
+    'date' => 'Date',
+    'payment_method' => 'Payment Method',
+    'payment_status' => 'Payment Status',
+    'tax' => 'Tax',
+    'total' => 'Total',
+    'is_return' => 'Is Return',
+
     'accountants' => 'Accountants',
     'accountant' => 'Accountant',
     'accountants_list' => 'Accountants List',
@@ -114,6 +123,7 @@ return [
     'dashboard' => 'Dashboard',
 
     'add' => 'Add',
+    'show' => 'Show',
     'edit' => 'Edit',
     'created' => 'Item has been created',
     'deleted' => 'Item has been deleted',

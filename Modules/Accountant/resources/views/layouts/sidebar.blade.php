@@ -33,24 +33,21 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" data-key="t-menu">{{ __('lang.dashboard') }}</li>
+
                 <li>
                     <a href="{{ route('accountant.index') }}">
                         <img src="{{ URL::asset('build/images/home-icon.png') }}" alt="" class="img-23">
                         <span class="menu-item">{{ __('lang.dashboard') }}</span>
                     </a>
                 </li>
+
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow">
+                    <a href="{{ route('accountant.invoices.index') }}">
                         <img src="{{ URL::asset('build/images/doctor-icon.png') }}" alt=""class="img-23">
-                        <span class="menu-item">{{ __('lang.doctors') }}</span>
+                        <span class="menu-item"> {{ __('lang.invoices') }}</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.doctors.index') }}">{{ __('lang.doctors_list') }}</a></li>
-                        <li><a
-                                href="{{ route('admin.doctors.create') }}">{{ __('lang.add') . ' ' . __('lang.doctor') }}</a>
-                        </li>
-                    </ul>
                 </li>
+
 
             </ul>
         </div>

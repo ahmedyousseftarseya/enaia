@@ -25,6 +25,21 @@
 
     // select2
     $('.select2').select2();
+
+    // modal
+    $(document).on('click', '.btn-modal', function(e) {
+        e.preventDefault();
+        var container = $(this).data('container');
+        $.ajax({
+            url: $(this).data('href'),
+            dataType: 'html',
+            success: function(result) {
+                $(container)
+                    .html(result)
+                    .modal('show');
+            },
+        });
+    });
 </script>
 
 @yield('scripts')

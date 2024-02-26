@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'invoices' => 'الفواتير',
+    'ref_no' => 'الرقم المرجعي',
+    'date' => 'التاريخ',
+    'payment_method' => 'طريقة الدفع',
+    'payment_status' => 'حالة الدفع',
+    'tax' => 'الضريبة',
+    'total' => 'المجموع',
+    'is_return' => 'هل هو فاتورة مرتجع',
+
     'accountants' => 'المحاسبين',
     'accountant' => 'المحاسب',
     'accountants_list' => 'قائمة المحاسبين',
