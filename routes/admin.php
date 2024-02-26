@@ -54,7 +54,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-doctors');
         Route::get('edit/{doctor}', 'edit')->name('edit')->middleware('permission:admin_update-doctors');
         Route::put('update/{doctor}', 'update')->name('update')->middleware('permission:admin_update-doctors');
-        Route::post('destroy/{doctor}', 'update')->name('destroy')->middleware('permission:admin_delete-doctors');
+        Route::delete('destroy/{doctor}', 'destroy')->name('destroy')->middleware('permission:admin_delete-doctors');
     });
 
     // Route::resource('nurses', NurseController::class);
@@ -65,7 +65,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-nurses');
         Route::get('edit/{nurse}', 'edit')->name('edit')->middleware('permission:admin_update-nurses');
         Route::put('update/{nurse}', 'update')->name('update')->middleware('permission:admin_update-nurses');
-        Route::post('destroy/{nurse}', 'update')->name('destroy')->middleware('permission:admin_delete-nurses');
+        Route::delete('destroy/{nurse}', 'destroy')->name('destroy')->middleware('permission:admin_delete-nurses');
     });
     
     // Route::resource('head-nurses', HeadNurseController::class);
@@ -76,7 +76,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-head-nurses');
         Route::get('edit/{nurse}', 'edit')->name('edit')->middleware('permission:admin_update-head-nurses');
         Route::put('update/{nurse}', 'update')->name('update')->middleware('permission:admin_update-head-nurses');
-        Route::post('destroy/{nurse}', 'update')->name('destroy')->middleware('permission:admin_delete-head-nurses');
+        Route::delete('destroy/{nurse}', 'destroy')->name('destroy')->middleware('permission:admin_delete-head-nurses');
     });
 
     // Route::resource('users', UserController::class);
@@ -87,11 +87,10 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-customers');
         Route::get('edit/{user}', 'edit')->name('edit')->middleware('permission:admin_update-customers');
         Route::put('update/{user}', 'update')->name('update')->middleware('permission:admin_update-customers');
-        Route::post('destroy/{user}', 'update')->name('destroy')->middleware('permission:admin_delete-customers');
+        Route::delete('destroy/{user}', 'destroy')->name('destroy')->middleware('permission:admin_delete-customers');
         Route::post('change-status', 'changeStatus')->name('changeStatus')->middleware('permission:admin_update-status-customers');
     });
 
-    //read-settings
     Route::controller(SettingController::class)->name('settings.')->prefix('settings')->group(function () {
         Route::get('global-settings', 'globalSettings')->name('globalSettings')->middleware('permission:admin_read-settings');
         Route::get('conatct-settings', 'contactSettings')->name('contactSettings')->middleware('permission:admin_read-settings');
@@ -118,7 +117,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-admins');
         Route::get('edit/{admin}', 'edit')->name('edit')->middleware('permission:admin_update-admins');
         Route::put('update/{admin}', 'update')->name('update')->middleware('permission:admin_update-admins');
-        Route::post('destroy/{admin}', 'update')->name('destroy')->middleware('permission:admin_delete-admins');
+        Route::delete('destroy/{admin}', 'destroy')->name('destroy')->middleware('permission:admin_delete-admins');
     });
 
     // Route::resource('roles', RoleController::class);
@@ -128,7 +127,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-roles');
         Route::get('edit/{role}', 'edit')->name('edit')->middleware('permission:admin_update-roles');
         Route::put('update/{role}', 'update')->name('update')->middleware('permission:admin_update-roles');
-        Route::post('destroy/{role}', 'update')->name('destroy')->middleware('permission:admin_delete-roles');
+        Route::delete('destroy/{role}', 'destroy')->name('destroy')->middleware('permission:admin_delete-roles');
     });
 
     // Route::resource('countries', CountryController::class);
@@ -138,7 +137,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-countries');
         Route::get('edit/{country}', 'edit')->name('edit')->middleware('permission:admin_update-countries');
         Route::put('update/{country}', 'update')->name('update')->middleware('permission:admin_update-countries');
-        Route::post('destroy/{country}', 'update')->name('destroy')->middleware('permission:admin_delete-countries');
+        Route::delete('destroy/{country}', 'destroy')->name('destroy')->middleware('permission:admin_delete-countries');
     });
     
     // Route::resource('cities', CityController::class);
@@ -148,16 +147,10 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('store', 'store')->name('store')->middleware('permission:admin_create-cities');
         Route::get('edit/{city}', 'edit')->name('edit')->middleware('permission:admin_update-cities');
         Route::put('update/{city}', 'update')->name('update')->middleware('permission:admin_update-cities');
-        Route::post('destroy/{city}', 'update')->name('destroy')->middleware('permission:admin_delete-cities');
+        Route::delete('destroy/{city}', 'destroy')->name('destroy')->middleware('permission:admin_delete-cities');
     });
 
 });
-
-
-Route::get('/not-authorized', function () {
-    return view('admin.errors.403');
-})->name('not-authorized');
-
 
 Route::get('/{any}', [HomeController::class, 'notFound'])->where('any', '.*');
 
