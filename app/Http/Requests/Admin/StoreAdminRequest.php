@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Http\Requests\GeneralRequest;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreAdminRequest extends FormRequest
+class StoreAdminRequest extends GeneralRequest
 {
     /**
      * Get the validation rules that apply to the request.

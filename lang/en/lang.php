@@ -1,6 +1,16 @@
 <?php
 
 return [
+    'coupons' => 'Coupons',
+    'coupon' => 'Coupon',
+    'coupons_list' => 'Coupons List',
+    'type' => 'Type',
+    'value' => 'Value',
+    'from' => 'From',
+    'to' => 'To',
+    'fixed' => 'Fixed',
+    'percent' => 'Percent',
+
     'invoices' => 'Invoices',
     'ref_no' => 'Ref No',
     'date' => 'Date',

@@ -199,6 +199,22 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <img src="{{ URL::asset('build/images/city-icon.png') }}" alt=""class="img-23">
+                        <span class="menu-item">{{ __('lang.coupons') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        {{-- @if(auth('admin')->user()->isAbleTo('admin_read-coupons')) --}}
+                            <li><a href="{{ route('admin.coupons.index') }}">{{ __('lang.coupons_list') }}</a></li>
+                        {{-- @endif --}}
+                        
+                        {{-- @if(auth('admin')->user()->isAbleTo('admin_create-coupons')) --}}
+                            <li><a href="{{ route('admin.coupons.create') }}">{{ __('lang.add') . ' ' . __('lang.coupon') }}</a></li>
+                        {{-- @endif --}}
+                    </ul>
+                </li>
+
                 @if(auth('admin')->user()->isAbleTo('admin_read-settings'))
                     <li>
                         <a href="javascript: void(0);" class="has-arrow">

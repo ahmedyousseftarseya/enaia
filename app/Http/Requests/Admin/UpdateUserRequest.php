@@ -2,11 +2,11 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Http\Requests\GeneralRequest;
 use App\Models\User;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateUserRequest extends FormRequest
+class UpdateUserRequest extends GeneralRequest
 {
     /**
      * Get the validation rules that apply to the request.

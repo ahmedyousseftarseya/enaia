@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AccountantController;
+use App\Http\Controllers\Admin\CouponController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -157,6 +158,17 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('edit/{accountant}', 'edit')->name('edit');
         Route::put('update/{accountant}', 'update')->name('update');
         Route::delete('destroy/{accountant}', 'destroy')->name('destroy');
+    });
+
+    Route::controller(CouponController::class)->name('coupons.')->prefix('coupons')->group(function () {
+        Route::get('index', 'index')->name('index');       
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{coupon}', 'edit')->name('edit');
+        Route::put('update/{coupon}', 'update')->name('update');
+        Route::delete('destroy/{coupon}', 'destroy')->name('destroy');
+        Route::post('change-status', 'changeStatus')->name('changeStatus');
+
     });
 
 });
