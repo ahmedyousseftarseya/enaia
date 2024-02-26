@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = 'accountant';
 
     /**
      * Create a new controller instance.
@@ -39,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:accountant')->except('logout');
     }
 
     public function maxAttempts()
@@ -55,14 +55,14 @@ class LoginController extends Controller
     // change guard for admin
     protected function guard()
     {
-        return Auth::guard('admin');
+        return Auth::guard('accountant');
     }
 
     // change redirect after logout
     public function logout()
     {
-        Auth::guard('admin')->logout();
-        return redirect()->route('admin.login');
+        Auth::guard('accountant')->logout();
+        return redirect()->route('accountant.login');
     }
 
     public function showLoginForm()

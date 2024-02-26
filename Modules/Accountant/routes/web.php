@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Accountant\App\Http\Controllers\AccountantController;
 use Modules\Accountant\App\Http\Controllers\LangController;
 use Modules\Accountant\App\Http\Controllers\LoginController;
+use Modules\Accountant\App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,11 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('lang/{locale}', [LangController::class, 'index'])->name('lang');
 
-Route::group([], function () {
-    Route::resource('/', AccountantController::class);
+
+Route::middleware('auth:accountant')->group(function () {
+    Route::get('/', [AccountantController::class, 'index'])->name('index');
+
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('profile/update/{accountant}', [ProfileController::class, 'update'])->name('profile.update');
+
 });

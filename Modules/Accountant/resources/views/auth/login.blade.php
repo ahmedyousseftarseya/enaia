@@ -42,14 +42,14 @@
                                     <p class="text-muted">{{ __('lang.sign_in_to_continue_to_admin_panel') }}</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form method="POST" action="{{ route('admin.login') }}" class="auth-input {{ isRtl() ? 'text-end' : '' }}">
+                                    <form method="POST" action="{{ route('accountant.login') }}" class="auth-input {{ isRtl() ? 'text-end' : '' }}">
                                         @csrf
                                         <div class="mb-2">
                                             <label for="username" class="form-label">{{ __('lang.username') }}</label>
                                             <input id="username" type="username" name="username"
                                                 class="form-control {{ isRtl() ? 'text-end' : '' }} "
                                                 {{-- @error('username') is-invalid @enderror"  --}}
-                                                value="{{ old('username', 'admin') }}" required autocomplete="username" autofocus
+                                                value="{{ old('username', 'test') }}" required autocomplete="username" autofocus
                                             />
                                             @error('username')
                                                 <span class="text-danger" role="alert">

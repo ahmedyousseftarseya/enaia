@@ -33,29 +33,22 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" data-key="t-menu">{{ __('lang.dashboard') }}</li>
-
-                @if(auth('admin')->user()->isAbleTo('admin_read-dashboard'))
-                    <li>
-                        <a href="{{ route('admin.index') }}">
-                            <img src="{{ URL::asset('build/images/home-icon.png') }}" alt="" class="img-23">
-                            <span class="menu-item">{{ __('lang.dashboard') }}</span>
-                        </a>
-                    </li>
-                @endif
-
+                <li>
+                    <a href="{{ route('accountant.index') }}">
+                        <img src="{{ URL::asset('build/images/home-icon.png') }}" alt="" class="img-23">
+                        <span class="menu-item">{{ __('lang.dashboard') }}</span>
+                    </a>
+                </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <img src="{{ URL::asset('build/images/doctor-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.doctors') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        @if(auth('admin')->user()->isAbleTo('admin_read-doctors'))
-                            <li><a href="{{ route('admin.doctors.index') }}">{{ __('lang.doctors_list') }}</a></li>
-                        @endif
-
-                        @if(auth('admin')->user()->isAbleTo('admin_create-doctors'))
-                            <li><a href="{{ route('admin.doctors.create') }}">{{ __('lang.add') . ' ' . __('lang.doctor') }}</a></li>
-                        @endif
+                        <li><a href="{{ route('admin.doctors.index') }}">{{ __('lang.doctors_list') }}</a></li>
+                        <li><a
+                                href="{{ route('admin.doctors.create') }}">{{ __('lang.add') . ' ' . __('lang.doctor') }}</a>
+                        </li>
                     </ul>
                 </li>
 
