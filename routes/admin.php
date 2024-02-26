@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AccountantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
 
 Route::get('lang/{locale}', [LangController::class, 'index'])->name('lang');
 
@@ -148,6 +148,15 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('edit/{city}', 'edit')->name('edit')->middleware('permission:admin_update-cities');
         Route::put('update/{city}', 'update')->name('update')->middleware('permission:admin_update-cities');
         Route::delete('destroy/{city}', 'destroy')->name('destroy')->middleware('permission:admin_delete-cities');
+    });
+
+    Route::controller(AccountantController::class)->name('accountants.')->prefix('accountants')->group(function () {
+        Route::get('index', 'index')->name('index');       
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{accountant}', 'edit')->name('edit');
+        Route::put('update/{accountant}', 'update')->name('update');
+        Route::delete('destroy/{accountant}', 'destroy')->name('destroy');
     });
 
 });

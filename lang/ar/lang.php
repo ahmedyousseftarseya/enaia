@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'accountants' => 'المحاسبين',
+    'accountant' => 'المحاسب',
+    'accountants_list' => 'قائمة المحاسبين',
     'sign_in_to_continue_to_admin_panel' => 'سجل الدخول للمتابعة في لوحة التحكم',
     'welcome_back' => '! مرحبا بعودتك',
     'edit_profile' => 'تعديل الملف الشخصي',

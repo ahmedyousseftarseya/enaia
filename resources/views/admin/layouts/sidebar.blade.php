@@ -78,6 +78,22 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <img src="{{ URL::asset('build/images/head-nurse-icon.png') }}" alt=""class="img-23">
+                        <span class="menu-item">{{ __('lang.accountants') }}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        {{-- @if(auth('admin')->user()->isAbleTo('admin_read-accountants')) --}}
+                            <li> <a href="{{ route('admin.accountants.index') }}">{{ __('lang.accountants_list') }}</a></li>
+                        {{-- @endif --}}
+                        
+                        {{-- @if(auth('admin')->user()->isAbleTo('admin_create-accountants')) --}}
+                            <li><a href="{{ route('admin.accountants.create') }}">{{ __('lang.add') . ' ' . __('lang.accountant') }}</a></li>
+                        {{-- @endif --}}
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <img src="{{ URL::asset('build/images/head-nurse-icon.png') }}" alt=""class="img-23">
                         <span class="menu-item">{{ __('lang.head_nurses') }}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">

@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'accountants' => 'Accountants',
+    'accountant' => 'Accountant',
+    'accountants_list' => 'Accountants List',
     'sign_in_to_continue_to_admin_panel' => 'Sign In To Continue To Admin Panel',
     'welcome_back' => 'Welcome Back!',
     'edit_profile' => 'Edit Profile',
