@@ -114,7 +114,7 @@
                             <span class="menu-item">{{ __('lang.customers') }}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.users.index') }}">{{ __('lang.customers_list') }}</a>\</li>
+                                <li><a href="{{ route('admin.users.index') }}">{{ __('lang.customers_list') }}</a></li>
                         </ul>
                     </li>
                 @endif

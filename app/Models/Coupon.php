@@ -27,5 +27,9 @@ class Coupon extends Model
         if (request('status')) {
             $q->where('status', request('status'));
         }
+
+        if (request('type')) {
+            $q->where('type', request('type'));
+        }
     }
 }

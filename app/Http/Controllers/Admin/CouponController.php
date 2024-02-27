@@ -7,7 +7,6 @@ use App\Http\Requests\Admin\StoreCouponRequest;
 use App\Models\Coupon;
 use App\Models\Service;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 
 class CouponController extends Controller
 {
@@ -26,6 +25,8 @@ class CouponController extends Controller
         $resources = $this->model->latest()->filter(request())->paginate(self::$pagination);
         return view('admin.coupons.index', [
             'resources' => $resources,
+            'types' => Coupon::TYPE,
+            'status' => Coupon::STATUS
         ]);
     }
 
@@ -34,10 +35,9 @@ class CouponController extends Controller
      */
     public function create()
     {
-        $types = Coupon::TYPE;
         return view('admin.coupons.form', [
             'resource' => $this->model,
-            'types' => $types
+            'types' => Coupon::TYPE
         ]);
     }
 

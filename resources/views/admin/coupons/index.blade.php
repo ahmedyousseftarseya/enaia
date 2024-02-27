@@ -11,8 +11,8 @@
     {{-- breadcrumb component --}}
     @component('admin.layouts.components.breadcrumb', [
         'title' => __('lang.coupons_list'),
-        'pagetitle' => __('lang.nurses'),
-        'url' => route('admin.nurses.index'),
+        'pagetitle' => __('lang.coupons'),
+        'url' => route('admin.coupons.index'),
     ])
     @endcomponent
 
@@ -36,7 +36,7 @@
 
         @slot('action')
             {{-- @if (auth('admin')->user()->isAbleTo('admin_create-coupons')) --}}
-            <a href="{{ route('admin.coupons.create') }}" class="btn btn-primary">{{ __('lang.add') . ' ' . __('lang.service') }}</a>
+            <a href="{{ route('admin.coupons.create') }}" class="btn btn-primary">{{ __('lang.add') . ' ' . __('lang.coupon') }}</a>
             {{-- @endif --}}
         @endslot
 
