@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/accountant",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Accountant\\": "",
+            "Modules\\Accountant\\App\\": "app/",
+            "Modules\\Accountant\\Database\\Factories\\": "database/factories/",
+            "Modules\\Accountant\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Accountant\\Tests\\": "tests/"
+        }
+    }
+}

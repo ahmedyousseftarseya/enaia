@@ -50,6 +50,19 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    <div class="col-12 mt-4">
+                        {{ html()->label(__('lang.shipping_cost')) }}
+                        <span class="text-danger fs-6">*</span>
+                        {{ html()->number('shipping_cost', old('shipping_cost',  $resource->shipping_cost))
+                            ->class('form-control')
+                            ->attribute('required')
+                        }}
+
+                        @error('shipping_cost')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     
             
                     @foreach (config('translatable.locales') as $locale)

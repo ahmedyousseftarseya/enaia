@@ -1,6 +1,28 @@
 <?php
 
 return [
+    'coupons' => 'الكوبونات',
+    'coupon' => 'كوبون',
+    'coupons_list' => 'قائمة الكوبونات',
+    'type' => 'النوع',
+    'value' => 'القيمة',
+    'from' => 'من',
+    'to' => 'الي',
+    'fixed' => 'ثابت',
+    'percent' => 'نسبة مئوية',
+
+    'invoices' => 'الفواتير',
+    'ref_no' => 'الرقم المرجعي',
+    'date' => 'التاريخ',
+    'payment_method' => 'طريقة الدفع',
+    'payment_status' => 'حالة الدفع',
+    'tax' => 'الضريبة',
+    'total' => 'المجموع',
+    'is_return' => 'هل هو فاتورة مرتجع',
+
+    'accountants' => 'المحاسبين',
+    'accountant' => 'المحاسب',
+    'accountants_list' => 'قائمة المحاسبين',
     'sign_in_to_continue_to_admin_panel' => 'سجل الدخول للمتابعة في لوحة التحكم',
     'welcome_back' => '! مرحبا بعودتك',
     'edit_profile' => 'تعديل الملف الشخصي',
@@ -32,6 +54,7 @@ return [
     'no_data' => 'لا يوجد بيانات',
     'cities' => 'المدن',
     'city' => 'مدينة',
+    'shipping_cost' => 'تكلفة الشحن',
     'cities_list' => 'قائمة المدن',
     'countries' =>  'الدول',
     'country' => 'دولة',

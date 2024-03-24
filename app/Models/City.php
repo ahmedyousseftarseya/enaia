@@ -12,7 +12,7 @@ class City extends Model implements TranslatableContract
 {
     use Translatable, LogsActivity;
     protected array $translatedAttributes = ['name'];
-    protected $fillable = ['country_id'];
+    protected $fillable = ['country_id', 'shipping_cost'];
 
     public function getActivitylogOptions(): LogOptions
     {

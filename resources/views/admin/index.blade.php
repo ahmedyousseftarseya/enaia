@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
-@section('title')
-    Dashboard
-@endsection
+@section('title', __('lang.dashboard'))
+
 @section('css')
     <!-- jsvectormap css -->
     <link href="{{ URL::asset('build/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
