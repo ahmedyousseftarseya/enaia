@@ -7,7 +7,8 @@
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ $url }}">{{ $pagetitle }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="fa fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ $pagetitle }}</a></li>
                     <li class="breadcrumb-item active">{{ $title }}</li>
                 </ol>
             </div>

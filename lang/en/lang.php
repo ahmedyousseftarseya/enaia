@@ -1,6 +1,28 @@
 <?php
 
 return [
+    'coupons' => 'Coupons',
+    'coupon' => 'Coupon',
+    'coupons_list' => 'Coupons List',
+    'type' => 'Type',
+    'value' => 'Value',
+    'from' => 'From',
+    'to' => 'To',
+    'fixed' => 'Fixed',
+    'percent' => 'Percent',
+
+    'invoices' => 'Invoices',
+    'ref_no' => 'Ref No',
+    'date' => 'Date',
+    'payment_method' => 'Payment Method',
+    'payment_status' => 'Payment Status',
+    'tax' => 'Tax',
+    'total' => 'Total',
+    'is_return' => 'Is Return',
+
+    'accountants' => 'Accountants',
+    'accountant' => 'Accountant',
+    'accountants_list' => 'Accountants List',
     'sign_in_to_continue_to_admin_panel' => 'Sign In To Continue To Admin Panel',
     'welcome_back' => 'Welcome Back!',
     'edit_profile' => 'Edit Profile',
@@ -32,6 +54,7 @@ return [
     'no_data' => 'No Data',
     'cities' => 'Cities',
     'city' => 'City',
+    'shipping_cost' => 'Shipping Cost',
     'cities_list' => 'Cities List',
     'countries' =>  'Countries',
     'country' => 'Country',
@@ -110,6 +133,7 @@ return [
     'dashboard' => 'Dashboard',
 
     'add' => 'Add',
+    'show' => 'Show',
     'edit' => 'Edit',
     'created' => 'Item has been created',
     'deleted' => 'Item has been deleted',
